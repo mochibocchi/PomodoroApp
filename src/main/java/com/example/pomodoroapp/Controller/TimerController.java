@@ -46,6 +46,13 @@ public class TimerController {
         String minutes = String.format("%02d", model.getMinutes());
         String seconds = String.format("%02d", model.getSeconds());
         timerLabel.setText(minutes + ":" + seconds);
+
+        if (isTimerFinished())
+        {
+            startPauseButton.setText("Start");
+            isRunning = false;
+            timeline.stop();
+        }
     }
 
     @FXML
@@ -57,6 +64,14 @@ public class TimerController {
             pauseTimer();
             startPauseButton.setText("Start");
         }
+
+        if (isTimerFinished()) {
+            resetTimer(event);
+        }
+    }
+
+    private boolean isTimerFinished() {
+        return model.getMinutes() == 0 && model.getSeconds() == 0;
     }
 
     private void startTimer() {

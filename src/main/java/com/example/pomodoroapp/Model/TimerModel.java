@@ -4,8 +4,8 @@ public class TimerModel {
     private int seconds;
 
     public TimerModel() {
-        this.minutes = 25;
-        this.seconds = 0;
+        this.minutes = 0;
+        this.seconds = 2;
     }
 
     public int getMinutes() {
