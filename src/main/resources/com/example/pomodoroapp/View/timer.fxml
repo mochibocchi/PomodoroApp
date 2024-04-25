@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.pomodoroapp.Controller.TimerController" stylesheets="@style.css">
+    <Label text="Pomodoro Timer" />
+    <Label fx:id="timerLabel" text="25:00" styleClass="label-timer"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="startPauseButton" text="Start" onAction="#startPauseTimer" />
+        <Button text="Reset" onAction="#resetTimer" />
+    </HBox>
+</VBox>

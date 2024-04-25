@@ -1,4 +1,4 @@
-package com.example.pomodoroapp;
+package com.example.pomodoroapp.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
