@@ -1,5 +1,5 @@
 
-package com.example.pomodoroapp.model;
+package com.example.pomodoroapp.Model;
 
 public class Study_Session {
     private int accountId;

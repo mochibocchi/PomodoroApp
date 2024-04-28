@@ -1,4 +1,4 @@
-package com.example.pomodoroapp.model;
+package com.example.pomodoroapp.Model;
 
 public class Account {
 

@@ -1,4 +1,4 @@
-package com.example.pomodoroapp.model;
+package com.example.pomodoroapp.Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

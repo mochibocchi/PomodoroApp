@@ -1,5 +1,7 @@
-package com.example.pomodoroapp.model;
-import com.example.pomodoroapp.model.Account;
+package com.example.pomodoroapp.Model;
+
+import com.example.pomodoroapp.Model.Account;
+
 import java.util.List;
 
 
