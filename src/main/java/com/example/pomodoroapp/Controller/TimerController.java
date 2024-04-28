@@ -3,7 +3,6 @@ import com.example.pomodoroapp.Model.TimerMode;
 import com.example.pomodoroapp.Model.TimerModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,8 +18,6 @@ public class TimerController {
     private Button shortBreakButton;
     @FXML
     private Button longBreakButton;
-    @FXML
-    private Button skipButton;
 
 
     private final TimerModel model;
@@ -43,8 +40,9 @@ public class TimerController {
                     } else if (model.getMinutes() > 0) {
                         model.setSeconds(59);
                         model.setMinutes(model.getMinutes() - 1);
-                    } else {
-                        timeline.stop(); // finish timer
+                    }
+                    else {
+                        timeline.stop();
                     }
                     updateTimerLabel();
                 })
@@ -59,14 +57,15 @@ public class TimerController {
 
         if (isTimerFinished())
         {
-            startPauseButton.setText("Start");
-            isRunning = false;
-            timeline.stop();
+            nextMode();
+//            startPauseButton.setText("Start");
+//            isRunning = false;
+//            timeline.stop();
         }
     }
 
     @FXML
-    private void startPauseTimer(ActionEvent event) {
+    private void startPauseTimer() {
         if (!isRunning) {
             startTimer();
             startPauseButton.setText("Pause");
@@ -76,7 +75,7 @@ public class TimerController {
         }
 
         if (isTimerFinished()) {
-            resetTimer(event);
+            resetTimer();
         }
     }
 
@@ -95,11 +94,10 @@ public class TimerController {
     }
 
     @FXML
-    private void resetTimer(ActionEvent event) {
+    private void resetTimer() {
         timeline.stop();
         startPauseButton.setText("Start");
         isRunning = false;
-
         TimerMode currentMode = model.getMode();
         setTimerMode(currentMode);
 
@@ -156,7 +154,29 @@ public class TimerController {
         model.setMinutes(0);
         model.setSeconds(0);
         updateTimerLabel();
+
+        if (!isRunning) {
+            startPauseButton.setText("Pause");
+        } else {
+            pauseTimer();
+            startPauseButton.setText("Start");
+        }
     }
 
+    private void nextMode () {
 
+        TimerMode currentMode = model.getMode();
+
+        switch (currentMode) {
+            case POMODORO:
+                setShortBreak();
+                break;
+            case SHORT_BREAK:
+                setLongBreak();
+                break;
+            case LONG_BREAK:
+                setPomodoro();
+                break;
+        }
+    }
 }

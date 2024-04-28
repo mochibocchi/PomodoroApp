@@ -14,6 +14,6 @@
     <HBox spacing="10" alignment="CENTER">
         <Button fx:id="startPauseButton" text="Start" onAction="#startPauseTimer" />
         <Button text="Reset" onAction="#resetTimer" />
-        <Button fx:id="skipButton" text="Skip" onAction="#skipTimer" />
+        <Button text="Skip" onAction="#skipTimer" />
     </HBox>
 </VBox>
