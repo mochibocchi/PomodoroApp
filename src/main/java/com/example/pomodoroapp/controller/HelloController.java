@@ -1,9 +1,9 @@
-package com.example.pomodoroapp.controller;
+package com.example.pomodoroapp.Controller;
 
 import com.example.pomodoroapp.HelloApplication;
-import com.example.pomodoroapp.model.Account;
-import com.example.pomodoroapp.model.IAccountDAO;
-import com.example.pomodoroapp.model.SqliteAccountDAO;
+import com.example.pomodoroapp.Model.Account;
+import com.example.pomodoroapp.Model.IAccountDAO;
+import com.example.pomodoroapp.Model.SqliteAccountDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

@@ -1,9 +1,9 @@
-package com.example.pomodoroapp.controller;
-import com.example.pomodoroapp.model.*;
-import com.example.pomodoroapp.model.IAccountDAO;
-import com.example.pomodoroapp.model.SqliteAccountDAO;
-import com.example.pomodoroapp.model.IStudy_SessionDAO;
-import com.example.pomodoroapp.model.SqliteStudy_SessionDAO;
+package com.example.pomodoroapp.Controller;
+import com.example.pomodoroapp.Model.*;
+import com.example.pomodoroapp.Model.IAccountDAO;
+import com.example.pomodoroapp.Model.SqliteAccountDAO;
+import com.example.pomodoroapp.Model.IStudy_SessionDAO;
+import com.example.pomodoroapp.Model.SqliteStudy_SessionDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
