@@ -5,7 +5,11 @@
 
 <VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.pomodoroapp.Controller.TimerController" stylesheets="@style.css">
-    <Label text="Pomodoro Timer" />
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="pomodoroButton" text="Pomodoro" onAction="#setPomodoro" styleClass="pomodoro-button"/>
+        <Button fx:id="shortBreakButton" text="Short Break" onAction="#setShortBreak" styleClass="pomodoro-button"/>
+        <Button fx:id="longBreakButton" text="Long Break" onAction="#setLongBreak" styleClass="pomodoro-button"/>
+    </HBox>
     <Label fx:id="timerLabel" text="25:00" styleClass="label-timer"/>
     <HBox spacing="10" alignment="CENTER">
         <Button fx:id="startPauseButton" text="Start" onAction="#startPauseTimer" />

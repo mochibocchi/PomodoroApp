@@ -22,3 +22,14 @@
 .button:pressed {
     -fx-background-color: rgba(0,0,0,0.1);
 }
+
+.pomodoro-button {
+    -fx-background-color: none;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+}
+
+.highlight-button {
+    -fx-background-color: #C8E0FF;
+}

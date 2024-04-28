@@ -1,4 +1,5 @@
 package com.example.pomodoroapp.Controller;
+import com.example.pomodoroapp.Model.TimerMode;
 import com.example.pomodoroapp.Model.TimerModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -12,6 +13,13 @@ public class TimerController {
     private Label timerLabel;
     @FXML
     private Button startPauseButton;
+    @FXML
+    private Button pomodoroButton;
+    @FXML
+    private Button shortBreakButton;
+    @FXML
+    private Button longBreakButton;
+
 
     private final TimerModel model;
     private Timeline timeline;
@@ -25,7 +33,7 @@ public class TimerController {
     @FXML
     private void initialize() {
         updateTimerLabel();
-
+        toggleHighlight(pomodoroButton);
         timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), e -> {
                     if (model.getSeconds() > 0) {
@@ -87,10 +95,58 @@ public class TimerController {
     @FXML
     private void resetTimer(ActionEvent event) {
         timeline.stop();
+        startPauseButton.setText("Start");
+        isRunning = false;
+
+        TimerMode currentMode = model.getMode();
+        setTimerMode(currentMode);
+
+    }
+    private void setTimerMode(TimerMode currentMode) {
+        switch (currentMode) {
+            case SHORT_BREAK:
+                setShortBreak();
+                break;
+            case LONG_BREAK:
+                setLongBreak();
+                break;
+            default:
+                setPomodoro();
+                break;
+        }
+    }
+    @FXML
+    private void setPomodoro() {
+        model.setMode(TimerMode.POMODORO);
         model.setMinutes(25);
         model.setSeconds(0);
         updateTimerLabel();
-        startPauseButton.setText("Start");
-        isRunning = false;
+        toggleHighlight(pomodoroButton);
     }
+
+    @FXML
+    private void setShortBreak() {
+        model.setMode(TimerMode.SHORT_BREAK);
+        model.setMinutes(5);
+        model.setSeconds(0);
+        updateTimerLabel();
+        toggleHighlight(shortBreakButton);
+    }
+
+    @FXML
+    private void setLongBreak() {
+        model.setMode(TimerMode.LONG_BREAK);
+        model.setMinutes(10);
+        model.setSeconds(0);
+        updateTimerLabel();
+        toggleHighlight(longBreakButton);
+    }
+
+    private void toggleHighlight (Button button) {
+        pomodoroButton.getStyleClass().remove("highlight-button");
+        shortBreakButton.getStyleClass().remove("highlight-button");
+        longBreakButton.getStyleClass().remove("highlight-button");
+        button.getStyleClass().add("highlight-button");
+    }
+
 }

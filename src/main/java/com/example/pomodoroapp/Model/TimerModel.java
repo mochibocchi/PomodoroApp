@@ -2,10 +2,13 @@ package com.example.pomodoroapp.Model;
 public class TimerModel {
     private int minutes;
     private int seconds;
+    private TimerMode mode;
+
 
     public TimerModel() {
-        this.minutes = 0;
-        this.seconds = 2;
+        this.minutes = 25;
+        this.seconds = 0;
+        this.mode = TimerMode.POMODORO;
     }
 
     public int getMinutes() {
@@ -23,4 +26,8 @@ public class TimerModel {
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }
+
+    public TimerMode getMode() { return mode; }
+
+    public void setMode(TimerMode mode) { this.mode = mode; }
 }
