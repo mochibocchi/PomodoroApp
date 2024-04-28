@@ -19,6 +19,8 @@ public class TimerController {
     private Button shortBreakButton;
     @FXML
     private Button longBreakButton;
+    @FXML
+    private Button skipButton;
 
 
     private final TimerModel model;
@@ -148,5 +150,13 @@ public class TimerController {
         longBreakButton.getStyleClass().remove("highlight-button");
         button.getStyleClass().add("highlight-button");
     }
+
+    @FXML
+    private void skipTimer() {
+        model.setMinutes(0);
+        model.setSeconds(0);
+        updateTimerLabel();
+    }
+
 
 }
