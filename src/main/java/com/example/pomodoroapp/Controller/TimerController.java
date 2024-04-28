@@ -58,9 +58,6 @@ public class TimerController {
         if (isTimerFinished())
         {
             nextMode();
-//            startPauseButton.setText("Start");
-//            isRunning = false;
-//            timeline.stop();
         }
     }
 
@@ -91,6 +88,7 @@ public class TimerController {
     private void pauseTimer() {
         timeline.pause();
         isRunning = false;
+        startPauseButton.setText("Start");
     }
 
     @FXML
@@ -153,14 +151,8 @@ public class TimerController {
     private void skipTimer() {
         model.setMinutes(0);
         model.setSeconds(0);
+        pauseTimer();
         updateTimerLabel();
-
-        if (!isRunning) {
-            startPauseButton.setText("Pause");
-        } else {
-            pauseTimer();
-            startPauseButton.setText("Start");
-        }
     }
 
     private void nextMode() {
