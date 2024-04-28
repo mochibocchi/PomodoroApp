@@ -8,6 +8,10 @@
     -fx-font-size: 36px;
 }
 
+.no-styling.button {
+    -fx-background-color: none;
+}
+
 .button {
     -fx-font-size: 14px;
     -fx-padding: 10px 20px;

@@ -163,7 +163,7 @@ public class TimerController {
         }
     }
 
-    private void nextMode () {
+    private void nextMode() {
 
         TimerMode currentMode = model.getMode();
 
@@ -178,5 +178,9 @@ public class TimerController {
                 setPomodoro();
                 break;
         }
+    }
+    @FXML
+    private void openSettingsMenu() {
+
     }
 }

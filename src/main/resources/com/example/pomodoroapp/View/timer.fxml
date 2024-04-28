@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.pomodoroapp.Controller.TimerController" stylesheets="@style.css">
-    <HBox spacing="10" alignment="CENTER">
-        <Button fx:id="pomodoroButton" text="Pomodoro" onAction="#setPomodoro" styleClass="pomodoro-button"/>
-        <Button fx:id="shortBreakButton" text="Short Break" onAction="#setShortBreak" styleClass="pomodoro-button"/>
-        <Button fx:id="longBreakButton" text="Long Break" onAction="#setLongBreak" styleClass="pomodoro-button"/>
+<VBox alignment="CENTER" spacing="10" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.TimerController">
+   <HBox alignment="CENTER" spacing="10">
+       <Button onAction="#openSettingsMenu" styleClass="no-styling">
+           <graphic>
+               <ImageView fitHeight="36.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@images/settings.png"/>
+               </ImageView>
+           </graphic>
+       </Button>
+   </HBox>
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="pomodoroButton" onAction="#setPomodoro" styleClass="pomodoro-button" text="Pomodoro" />
+        <Button fx:id="shortBreakButton" onAction="#setShortBreak" styleClass="pomodoro-button" text="Short Break" />
+        <Button fx:id="longBreakButton" onAction="#setLongBreak" styleClass="pomodoro-button" text="Long Break" />
     </HBox>
-    <Label fx:id="timerLabel" text="25:00" styleClass="label-timer"/>
-    <HBox spacing="10" alignment="CENTER">
-        <Button fx:id="startPauseButton" text="Start" onAction="#startPauseTimer" />
-        <Button text="Reset" onAction="#resetTimer" />
-        <Button text="Skip" onAction="#skipTimer" />
+    <Label fx:id="timerLabel" styleClass="label-timer" text="25:00" />
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="startPauseButton" onAction="#startPauseTimer" text="Start" />
+        <Button onAction="#resetTimer" text="Reset" />
+        <Button onAction="#skipTimer" text="Skip" />
     </HBox>
 </VBox>
