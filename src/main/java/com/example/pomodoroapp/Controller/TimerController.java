@@ -1,13 +1,26 @@
 package com.example.pomodoroapp.Controller;
+import com.example.pomodoroapp.HelloApplication;
 import com.example.pomodoroapp.Model.TimerModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+
 public class TimerController {
+    @FXML
+    public Button loginButton;
     @FXML
     private Label timerLabel;
     @FXML
@@ -21,6 +34,30 @@ public class TimerController {
         this.model = new TimerModel();
         this.isRunning = false;
     }
+
+    private Parent loadFXML(String fxmlPath) throws IOException {
+        URL url = getClass().getResource(fxmlPath);
+        if (url == null) {
+            throw new RuntimeException("Failed to load FXML file. URL is null for " + fxmlPath);
+        }
+        FXMLLoader loader = new FXMLLoader(url);
+        return loader.load();
+    }
+
+    @FXML
+    private void handleLoginButtonAction(ActionEvent event) {
+            try {
+                // Change the scene to login.fxml
+                Parent loginRoot = FXMLLoader.load(HelloApplication.class.getResource("view/register.fxml"));
+                Scene scene = new Scene(loginRoot);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+
 
     @FXML
     private void initialize() {
