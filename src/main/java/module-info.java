@@ -8,6 +8,6 @@ module com.example.pomodoroapp {
 
     opens com.example.pomodoroapp to javafx.fxml;
     exports com.example.pomodoroapp;
-    exports com.example.pomodoroapp.controller;
-    opens com.example.pomodoroapp.controller to javafx.fxml;
+    exports com.example.pomodoroapp.Controller;
+    opens com.example.pomodoroapp.Controller to javafx.fxml;
 }
