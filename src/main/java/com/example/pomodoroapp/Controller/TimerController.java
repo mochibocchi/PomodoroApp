@@ -66,6 +66,19 @@ public class TimerController {
         }
     }
 
+    @FXML
+    private void openSettingsMenu(ActionEvent event) {
+        try {
+            Parent settingsRoot = FXMLLoader.load(HelloApplication.class.getResource("view/settings.fxml"));
+            Scene scene = new Scene(settingsRoot);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void initialize() {
