@@ -8,6 +8,10 @@
     -fx-font-size: 36px;
 }
 
+.no-styling.button {
+    -fx-background-color: none;
+}
+
 .button {
     -fx-font-size: 14px;
     -fx-padding: 10px 20px;
@@ -21,4 +25,15 @@
 
 .button:pressed {
     -fx-background-color: rgba(0,0,0,0.1);
+}
+
+.pomodoro-button {
+    -fx-background-color: none;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+}
+
+.highlight-button {
+    -fx-background-color: #C8E0FF;
 }
