@@ -17,6 +17,12 @@ public class SettingsController {
     @FXML
     private Button backButton;
     @FXML
+    private Button deleteButton;
+    @FXML
+    private Button addButton;
+
+
+    @FXML
     public void backButtonAction() throws IOException{
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/timer.fxml"));
