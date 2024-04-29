@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.SettingsController">
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="520.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.SettingsController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Settings" wrappingWidth="48.638671875" />
       <HBox spacing="10.0">
@@ -17,7 +17,7 @@
             <VBox spacing="10.0">
                <children>
                   <Label text="Break activites:" />
-                  <ListView prefHeight="168.0" prefWidth="317.0" />
+                  <ListView fx:id="activityListView" prefHeight="168.0" prefWidth="213.0" />
                   <HBox spacing="10.0">
                      <children>
                         <TextField fx:id="activityTextField" prefHeight="40.0" prefWidth="146.0" />

@@ -32,6 +32,8 @@ public class TimerController {
     private Button shortBreakButton;
     @FXML
     private Button longBreakButton;
+    @FXML
+    private Button settingsButton;
 
 
     private final TimerModel model;
@@ -67,16 +69,11 @@ public class TimerController {
     }
 
     @FXML
-    private void openSettingsMenu(ActionEvent event) {
-        try {
-            Parent settingsRoot = FXMLLoader.load(HelloApplication.class.getResource("view/settings.fxml"));
-            Scene scene = new Scene(settingsRoot);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void openSettingsMenu() throws IOException {
+        Stage stage = (Stage) settingsButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/settings.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
+        stage.setScene(scene);
     }
 
 
@@ -221,9 +218,5 @@ public class TimerController {
                 setPomodoro();
                 break;
         }
-    }
-    @FXML
-    private void openSettingsMenu() {
-
     }
 }
