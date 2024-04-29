@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e15734fc-d0a0-4174-a2fe-ce4c0e107910" name="Changes" comment="" />
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/images/settings.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +25,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -26,6 +37,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+    &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mochibocchi&quot;
+    }
+    }</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5ccc25ba-b1a0-4b1c-b843-bf35851e12ac" />
+        <option name="url" value="https://github.com/mochibocchi/PomodoroApp.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -34,9 +59,9 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
+    &quot;customColor&quot;: &quot;&quot;,
+    &quot;associatedIndex&quot;: 2
+    }</component>
   <component name="ProjectId" id="2fE82l6IOdduV8d4hQ87MvZqq5J" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,19 +69,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.HelloApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
-    "Maven.PomodoroApp [clean].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "authentication",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/brand/OneDrive - Queensland University of Technology/QUT Docs/Year 3 Sem 1 2024/CAB302 - Software Development/Week 2 - Collaborative Programming",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2735632",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "git-widget-placeholder": "Merging authentication"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -64,9 +78,11 @@
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\target\classes\com\example\pomodoroapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp\View\images" />
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\java\com\example\pomodoroapp" />
-      <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp\View" />
-      <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp" />
+      <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\java\com\example\pomodoroapp\images" />
+      <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\images" />
+      <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\java\com\example\pomodoroapp\Icons" />
     </key>
   </component>
   <component name="RunManager">
@@ -94,7 +110,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="pomodoro-timer-feature" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
