@@ -1,14 +1,14 @@
-package com.example.pomodoroapp.Controller;
+    package com.example.pomodoroapp.Controller;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+    import javafx.fxml.FXML;
+    import javafx.scene.control.Label;
 
-public class HelloController {
-    @FXML
-    private Label welcomeText;
+    public class HelloController {
+        @FXML
+        private Label welcomeText;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        @FXML
+        protected void onHelloButtonClick() {
+            welcomeText.setText("Welcome to JavaFX Application!");
+        }
     }
-}
