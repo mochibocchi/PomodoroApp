@@ -17,7 +17,7 @@
             <VBox spacing="10.0">
                <children>
                   <Label text="Break activites:" />
-                  <ListView prefHeight="168.0" prefWidth="317.0" />
+                  <ListView fx:id="activityListView" prefHeight="168.0" prefWidth="317.0" />
                   <HBox spacing="10.0">
                      <children>
                         <TextField fx:id="activityTextField" prefHeight="40.0" prefWidth="146.0" />
