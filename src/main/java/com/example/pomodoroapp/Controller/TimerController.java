@@ -11,20 +11,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
+
 
 public class TimerController {
+    public Button timerButton;
+
     @FXML
-    public Button loginButton;
+    private Button showSessionButton;
+    @FXML
+    private Button signoutButton;
     @FXML
     private Label timerLabel;
     @FXML
@@ -38,6 +39,8 @@ public class TimerController {
     @FXML
     private Button sessionButton;
     @FXML
+    private Button GoToSessionButton;
+    @FXML
     private final IAccountDAO accountDAO = new SqliteAccountDAO();
     @FXML
     private final IStudy_SessionDAO Study_SessionDAO = new SqliteStudy_SessionDAO();
@@ -47,58 +50,55 @@ public class TimerController {
     @FXML
     private TextField totalTimeTextField;
     private TextField completedWorkTextField;
-    private int loggedInUserId;
-    private int lastSessionId;
+    private TextField sessionIdTextField;
 
     int totalSecondsElapsed;
 
-    public void setLoggedInUserId(int loggedInUserId) {
-        this.loggedInUserId = loggedInUserId;
-        lastSessionId = getLastSessionId();
-    }
+
+
+    
+    
 
     public final TimerModel model;
     private Timeline timeline;
     public boolean isRunning;
+    private String formattedTime;
 
     public TimerController() {
         this.model = new TimerModel();
         this.isRunning = false;
     }
 
-    private Parent loadFXML(String fxmlPath) throws IOException {
-        URL url = getClass().getResource(fxmlPath);
-        if (url == null) {
-            throw new RuntimeException("Failed to load FXML file. URL is null for " + fxmlPath);
-        }
-        FXMLLoader loader = new FXMLLoader(url);
-        return loader.load();
-    }
 
-    @FXML
-    private void handleLoginButtonAction(ActionEvent event) {
+
+    private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
         try {
-            // Change the scene to login.fxml
-            Parent loginRoot = FXMLLoader.load(HelloApplication.class.getResource("view/register.fxml"));
-            Scene scene = new Scene(loginRoot);
+            Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlPath));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
+            stage.setScene(new Scene(root, width, height));
             stage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void handleSessionButtonAction(ActionEvent event) {
 
+
+    @FXML
+    private void openSession(ActionEvent event) throws IOException {
+        Stage stage = (Stage) GoToSessionButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/session.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void GoToTimer(ActionEvent event) throws IOException {
+        loadScene("view/timer.fxml",event,520,400);
     }
     @FXML
-    private void addSession(ActionEvent event) {
-        int sessionId = ++lastSessionId;
-        int total_time = 21;
-        String completedWork = "Stuff";
-        Study_Session study_session = new Study_Session(loggedInUserId, sessionId, total_time, completedWork);
-        Study_SessionDAO.addStudy_Session(study_session);
+    private void handleLoginButtonAction(ActionEvent event) throws IOException {
+        loadScene("view/register.fxml",event,520,400);
     }
 
     @FXML
@@ -108,6 +108,8 @@ public class TimerController {
         Scene scene = new Scene(fxmlLoader.load(), 520, 400);
         stage.setScene(scene);
     }
+
+
 
     @FXML
     private void initialize() {
@@ -131,7 +133,7 @@ public class TimerController {
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
-
+    @FXML
     private void updateTimerLabel() {
         String minutes = String.format("%02d", model.getMinutes());
         String seconds = String.format("%02d", model.getSeconds());
@@ -140,8 +142,6 @@ public class TimerController {
         if (isTimerFinished()) {
             goToNextMode();
         }
-
-        System.out.println("Total time spent: " + totalSecondsElapsed);
     }
 
 
@@ -153,6 +153,9 @@ public class TimerController {
         } else {
             pauseTimer();
             startPauseButton.setText("Start");
+            String formattedTime = displayTotalTime(totalSecondsElapsed);
+            System.out.println("Total time elapsed: " + totalSecondsElapsed);
+            AccountData.getInstance().addToTotalTimeElapsed(totalSecondsElapsed);
         }
 
         if (isTimerFinished()) {
@@ -174,6 +177,15 @@ public class TimerController {
         isRunning = false;
         startPauseButton.setText("Start");
     }
+    @FXML
+    private String displayTotalTime(int totalSeconds) {
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
 
     @FXML
     public void resetTimer() {
@@ -273,22 +285,17 @@ public class TimerController {
     private void transitionToLongBreak() {
         updateTimerGUI(TimerMode.LONG_BREAK);
     }
-    private int getLastSessionId() {
-        int maxSessionId = 0;
-        try {
-            Connection connection = SqliteConnection.getInstance();
-            String query = "SELECT MAX(sessionId) AS maxSessionId FROM study_sessions WHERE accountId = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, loggedInUserId);
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                maxSessionId = rs.getInt("maxSessionId");
-            }
-            rs.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return maxSessionId;
+
+    @FXML
+    private void logout(ActionEvent event) {
+        AccountData.getInstance().setAccountId(0);
+        loadScene("view/login.fxml", event,520,400);
     }
+
+    @FXML
+    private void GoToSessions(ActionEvent event) {
+        loadScene("view/ViewSessions.fxml", event,520, 400);
+    }
+
+
 }

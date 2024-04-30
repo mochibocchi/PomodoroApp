@@ -1,5 +1,9 @@
-
 package com.example.pomodoroapp.Model;
+
+import javafx.beans.binding.BooleanExpression;
+import javafx.beans.value.ObservableValue;
+
+import java.util.List;
 
 public class Study_Session {
     private int accountId;
@@ -7,20 +11,21 @@ public class Study_Session {
     private int total_time;
     private String completedWork;
 
-    public Study_Session(int accountId, int total_time, int sessionId, String completedWork) {
+    public Study_Session(int accountId, int total_time, String completedWork) {
         this.accountId = accountId;
         this.total_time = total_time;
-        this.sessionId = sessionId;
         this.completedWork = completedWork;
     }
 
-    public int getAccountId() {
 
-        return accountId;
+
+
+    public int getSessionId() {
+        return sessionId;
     }
 
-    public void setId(int id) {
-        this.accountId = accountId;
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
     }
 
     public int getTotalTime() {
@@ -31,14 +36,6 @@ public class Study_Session {
         this.total_time = total_time;
     }
 
-    public int getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(int sessionId) {
-        this.sessionId = sessionId;
-    }
-
     public String getCompletedWork() {
         return completedWork;
     }
@@ -46,4 +43,9 @@ public class Study_Session {
     public void setCompletedWork(String completedWork) {
         this.completedWork = completedWork;
     }
+
+    public int getLoggedInUserId() {
+        return accountId;
+    }
+
 }
