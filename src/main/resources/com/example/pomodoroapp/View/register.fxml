@@ -28,14 +28,16 @@
         <AnchorPane prefHeight="400.0" prefWidth="487.0" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" layoutY="66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                <TextField layoutX="84.0" layoutY="164.0" promptText="Username" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
-                <TextField layoutX="84.0" layoutY="206.0" promptText="Password" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
-                <Text layoutX="139.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.15156250000001">
+                <TextField fx:id="firstNameTextField" layoutX="84.0" layoutY="52.0" promptText="First Name" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
+                <TextField fx:id="lastNameTextField" layoutX="84.0" layoutY="94.0" promptText="Last Name" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
+                <TextField fx:id="emailTextField" layoutX="84.0" layoutY="136.0" promptText="Email" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
+                <TextField fx:id="passwordTextField" layoutX="84.0" layoutY="178.0" promptText="Password" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
+                <Text layoutX="139.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.15156250000001">
                     <font>
                         <Font size="25.0" />
                     </font>
                 </Text>
-                <Button fx:id="registerButton" layoutX="155.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleRegister" text="Sign up" />
+                <Button fx:id="registerButton" layoutX="155.0" layoutY="257.0" mnemonicParsing="false" onAction="#onRegister" text="Sign up" />
                 <Hyperlink fx:id="loginButton" layoutX="229.0" layoutY="307.0" onAction="#handleGoToLogin" prefHeight="14.0" prefWidth="42.0" text="Log In" />
             <Label layoutX="92.0" layoutY="310.0" text="Already have an account?" />
             </children>

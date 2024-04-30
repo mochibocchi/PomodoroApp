@@ -1,11 +1,11 @@
-    package com.example.pomodoroapp;
+package com.example.pomodoroapp;
 
-    import javafx.application.Application;
-    import javafx.fxml.FXMLLoader;
-    import javafx.scene.Scene;
-    import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-    import java.io.IOException;
+import java.io.IOException;
 
     public class HelloApplication extends Application {
         @Override
@@ -17,7 +17,7 @@
             stage.show();
         }
 
-        public static void main(String[] args) {
-            launch();
-        }
+    public static void main(String[] args) {
+        launch();
     }
+}
