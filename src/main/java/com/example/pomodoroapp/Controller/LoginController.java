@@ -21,12 +21,12 @@ public class LoginController {
 
     @FXML
     private void handleGoToRegister(ActionEvent event) {
-        loadScene("view/register.fxml", event);
+        loadScene("view/register.fxml", event, 520, 400);
     }
 
     @FXML
     private void handleLogin(ActionEvent event) {
-        loadScene("view/timer.fxml", event);
+        loadScene("view/timer.fxml", event, 520, 400);
 //        // Authentication logic
 //        if (authenticate(login, password)) {
 //            loadScene("view/timer.fxml", event);
@@ -35,11 +35,11 @@ public class LoginController {
 //        }
     }
 
-    private void loadScene(String fxmlPath, ActionEvent event) {
+    private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
         try {
             Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlPath));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root, width, height));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
