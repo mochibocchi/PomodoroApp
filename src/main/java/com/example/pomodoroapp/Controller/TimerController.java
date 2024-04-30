@@ -17,7 +17,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 
 public class TimerController {
     @FXML
@@ -65,7 +64,6 @@ public class TimerController {
             e.printStackTrace();
         }
     }
-
     @FXML
     private void openSettingsMenu(ActionEvent event) {
         try {
@@ -78,7 +76,6 @@ public class TimerController {
             e.printStackTrace();
         }
     }
-
 
     @FXML
     private void initialize() {
@@ -148,47 +145,27 @@ public class TimerController {
         startPauseButton.setText("Start");
         isRunning = false;
         TimerMode currentMode = model.getMode();
-        setTimerMode(currentMode);
-
-    }
-    private void setTimerMode(TimerMode currentMode) {
-        switch (currentMode) {
-            case SHORT_BREAK:
-                setShortBreak();
-                break;
-            case LONG_BREAK:
-                setLongBreak();
-                break;
-            default:
-                setPomodoro();
-                break;
-        }
+        updateTimerMode(currentMode);
     }
     @FXML
-    private void setPomodoro() {
+    public void initPomodoro() {
         model.setMode(TimerMode.POMODORO);
         model.setMinutes(25);
         model.setSeconds(0);
-        updateTimerLabel();
-        toggleHighlight(pomodoroButton);
     }
 
     @FXML
-    private void setShortBreak() {
+    public void initShortBreak() {
         model.setMode(TimerMode.SHORT_BREAK);
         model.setMinutes(5);
         model.setSeconds(0);
-        updateTimerLabel();
-        toggleHighlight(shortBreakButton);
     }
 
     @FXML
-    private void setLongBreak() {
+    public void initLongBreak() {
         model.setMode(TimerMode.LONG_BREAK);
         model.setMinutes(10);
         model.setSeconds(0);
-        updateTimerLabel();
-        toggleHighlight(longBreakButton);
     }
 
     private void toggleHighlight (Button button) {
@@ -207,23 +184,54 @@ public class TimerController {
     }
 
     private void nextMode() {
-
         TimerMode currentMode = model.getMode();
-
         switch (currentMode) {
             case POMODORO:
-                setShortBreak();
+                initShortBreak();
+                updateTimerLabel();
+                toggleHighlight(shortBreakButton);
                 break;
             case SHORT_BREAK:
-                setLongBreak();
+                initLongBreak();
+                updateTimerLabel();
+                toggleHighlight(longBreakButton);
                 break;
             case LONG_BREAK:
-                setPomodoro();
+                initPomodoro();
+                updateTimerLabel();
+                toggleHighlight(pomodoroButton);
+                break;
+        }
+    }
+    public void updateTimerMode(TimerMode currentMode) {
+        switch (currentMode) {
+            case SHORT_BREAK:
+                initShortBreak();
+                updateTimerLabel();
+                toggleHighlight(shortBreakButton);
+                break;
+            case LONG_BREAK:
+                initLongBreak();
+                updateTimerLabel();
+                toggleHighlight(longBreakButton);
+                break;
+            default:
+                initPomodoro();
+                updateTimerLabel();
+                toggleHighlight(pomodoroButton);
                 break;
         }
     }
     @FXML
-    private void openSettingsMenu() {
-
+    private void transitionToPomodoro() {
+        updateTimerMode(TimerMode.POMODORO);
+    }
+    @FXML
+    private void transitionToShortBreak() {
+        updateTimerMode(TimerMode.SHORT_BREAK);
+    }
+    @FXML
+    private void transitionToLongBreak() {
+        updateTimerMode(TimerMode.LONG_BREAK);
     }
 }

@@ -4,7 +4,6 @@ public class TimerModel {
     private int seconds;
     private TimerMode mode;
 
-
     public TimerModel() {
         this.minutes = 25;
         this.seconds = 0;
