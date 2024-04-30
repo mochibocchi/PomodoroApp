@@ -21,7 +21,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class TimerController {
     @FXML
@@ -137,7 +136,7 @@ public class TimerController {
 
         if (isTimerFinished())
         {
-            nextMode();
+            goToNextMode();
         }
     }
 
@@ -177,47 +176,28 @@ public class TimerController {
         startPauseButton.setText("Start");
         isRunning = false;
         TimerMode currentMode = model.getMode();
-        setTimerMode(currentMode);
+        updateTimerGUI(currentMode);
 
     }
-    private void setTimerMode(TimerMode currentMode) {
-        switch (currentMode) {
-            case SHORT_BREAK:
-                setShortBreak();
-                break;
-            case LONG_BREAK:
-                setLongBreak();
-                break;
-            default:
-                setPomodoro();
-                break;
-        }
-    }
     @FXML
-    private void setPomodoro() {
+    public void initPomodoro() {
         model.setMode(TimerMode.POMODORO);
         model.setMinutes(25);
         model.setSeconds(0);
-        updateTimerLabel();
-        toggleHighlight(pomodoroButton);
     }
 
     @FXML
-    private void setShortBreak() {
+    public void initShortBreak() {
         model.setMode(TimerMode.SHORT_BREAK);
         model.setMinutes(5);
         model.setSeconds(0);
-        updateTimerLabel();
-        toggleHighlight(shortBreakButton);
     }
 
     @FXML
-    private void setLongBreak() {
+    public void initLongBreak() {
         model.setMode(TimerMode.LONG_BREAK);
         model.setMinutes(10);
         model.setSeconds(0);
-        updateTimerLabel();
-        toggleHighlight(longBreakButton);
     }
 
     private void toggleHighlight (Button button) {
@@ -235,21 +215,58 @@ public class TimerController {
         updateTimerLabel();
     }
 
-    private void nextMode() {
+    private void goToNextMode() {
 
         TimerMode currentMode = model.getMode();
 
         switch (currentMode) {
             case POMODORO:
-                setShortBreak();
+                initShortBreak();
+                updateTimerLabel();
+                toggleHighlight(shortBreakButton);
                 break;
             case SHORT_BREAK:
-                setLongBreak();
+                initLongBreak();
+                updateTimerLabel();
+                toggleHighlight(longBreakButton);
                 break;
             case LONG_BREAK:
-                setPomodoro();
+                initPomodoro();
+                updateTimerLabel();
+                toggleHighlight(pomodoroButton);
                 break;
         }
+    }
+    public void updateTimerGUI(TimerMode currentMode) {
+        switch (currentMode) {
+            case SHORT_BREAK:
+                initShortBreak();
+                updateTimerLabel();
+                toggleHighlight(shortBreakButton);
+                break;
+            case LONG_BREAK:
+                initLongBreak();
+                updateTimerLabel();
+                toggleHighlight(longBreakButton);
+                break;
+            default:
+                initPomodoro();
+                updateTimerLabel();
+                toggleHighlight(pomodoroButton);
+                break;
+        }
+    }
+    @FXML
+    private void transitionToPomodoro() {
+        updateTimerGUI(TimerMode.POMODORO);
+    }
+    @FXML
+    private void transitionToShortBreak() {
+        updateTimerGUI(TimerMode.SHORT_BREAK);
+    }
+    @FXML
+    private void transitionToLongBreak() {
+        updateTimerGUI(TimerMode.LONG_BREAK);
     }
     private int getLastSessionId() {
         int maxSessionId = 0;

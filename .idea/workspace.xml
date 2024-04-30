@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TimerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TimerControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +46,6 @@
     &quot;accountId&quot;: &quot;c4cb64c0-844e-4fdf-bc19-304a99dd0fb6&quot;
   }
 }</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -64,8 +60,19 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
-    "git-widget-placeholder": "master",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.TimerControllerTest.executor": "Run",
+    "JUnit.TimerControllerTest.testPomodoroTimerValue.executor": "Run",
+    "JUnit.TimerControllerTest.testShortBreakCheckMode.executor": "Debug",
+    "JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "git-widget-placeholder": "pomodoro-timer-feature",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15527344",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -81,6 +88,69 @@
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp\View" />
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TimerControllerTest">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.pomodoroapp.HelloApplication" />
+      <module name="PomodoroApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest.testPomodoroTimerValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="METHOD_NAME" value="testPomodoroTimerValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest.testShortBreakCheckMode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="METHOD_NAME" value="testShortBreakCheckMode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest.testShortBreakCheckSeconds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="METHOD_NAME" value="testShortBreakCheckSeconds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.TimerControllerTest" />
+      <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
+      <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
+      <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TimerControllerTest" />
+        <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
+        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
+        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager">
     <option name="remove_strategy" value="true" />
