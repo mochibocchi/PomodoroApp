@@ -1,12 +1,9 @@
 package com.example.pomodoroapp.Model;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SqliteAccountDAO implements IAccountDAO{
+public class SqliteAccountDAO implements IAccountDAO {
     private Connection connection;
 
     public SqliteAccountDAO() {
@@ -22,7 +19,8 @@ public class SqliteAccountDAO implements IAccountDAO{
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + "firstName VARCHAR NOT NULL,"
                     + "lastName VARCHAR NOT NULL,"
-                    + "email VARCHAR NOT NULL"
+                    + "email VARCHAR NOT NULL,"
+                    + "password VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -33,12 +31,12 @@ public class SqliteAccountDAO implements IAccountDAO{
     @Override
     public void addAccount(Account account) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO accounts (firstName, lastName, email) VALUES (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO accounts (firstName, lastName, email, password) VALUES (?, ?, ?, ?)");
             statement.setString(1, account.getFirstName());
             statement.setString(2, account.getLastName());
             statement.setString(3, account.getEmail());
+            statement.setString(4, account.getPassword());
             statement.executeUpdate();
-            // Set the id of the new contact
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
                 account.setId(generatedKeys.getInt(1));
@@ -51,11 +49,12 @@ public class SqliteAccountDAO implements IAccountDAO{
     @Override
     public void updateAccount(Account account) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE accounts SET firstName = ?, lastName = ?, email = ? WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE accounts SET firstName = ?, lastName = ?, email = ?, password = ? WHERE id = ?");
             statement.setString(1, account.getFirstName());
             statement.setString(2, account.getLastName());
             statement.setString(3, account.getEmail());
-            statement.setInt(4, account.getId());
+            statement.setString(4, account.getPassword());
+            statement.setInt(5, account.getId());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,7 +84,8 @@ public class SqliteAccountDAO implements IAccountDAO{
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
-                Account account = new Account(firstName, lastName, email);
+                String password = resultSet.getString("password");
+                Account account = new Account(firstName, lastName, email, password);
                 account.setId(id);
                 return account;
             }
@@ -107,7 +107,8 @@ public class SqliteAccountDAO implements IAccountDAO{
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
                 String email = ((ResultSet) resultSet).getString("email");
-                Account account = new Account(firstName, lastName, email);
+                String password = resultSet.getString("password");
+                Account account = new Account(firstName, lastName, email, password);
                 account.setId(id);
                 accounts.add(account);
             }
@@ -116,5 +117,44 @@ public class SqliteAccountDAO implements IAccountDAO{
         }
         return accounts;
     }
+
+    public boolean login(String email, String password) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM accounts WHERE email = ? AND password = ?");
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public int getLoggedInUserId(String email, String password) {
+        int userId = -1;
+
+        try {
+            String query = "SELECT id FROM accounts WHERE email = ? AND password = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                userId = rs.getInt("id");
+                System.out.println("Logged-in user ID: " + userId);
+            }
+
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userId;
+    }
+
 
 }

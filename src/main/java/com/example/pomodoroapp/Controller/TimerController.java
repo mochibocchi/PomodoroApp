@@ -1,7 +1,6 @@
 package com.example.pomodoroapp.Controller;
 import com.example.pomodoroapp.HelloApplication;
-import com.example.pomodoroapp.Model.TimerMode;
-import com.example.pomodoroapp.Model.TimerModel;
+import com.example.pomodoroapp.Model.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -15,8 +14,13 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class TimerController {
@@ -32,7 +36,23 @@ public class TimerController {
     private Button shortBreakButton;
     @FXML
     private Button longBreakButton;
+    @FXML
+    private Button sessionButton;
+    @FXML
+    private final IAccountDAO accountDAO = new SqliteAccountDAO();
+    @FXML
+    private final IStudy_SessionDAO Study_SessionDAO = new SqliteStudy_SessionDAO();
 
+    @FXML
+    private TextField totalTimeTextField;
+    private TextField completedWorkTextField;
+    private int loggedInUserId;
+    private int lastSessionId;
+
+    public void setLoggedInUserId(int loggedInUserId) {
+        this.loggedInUserId = loggedInUserId;
+        lastSessionId = getLastSessionId();
+    }
 
     private final TimerModel model;
     private Timeline timeline;
@@ -52,6 +72,9 @@ public class TimerController {
         return loader.load();
     }
 
+
+
+
     @FXML
     private void handleLoginButtonAction(ActionEvent event) {
         try {
@@ -64,6 +87,18 @@ public class TimerController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void handleSessionButtonAction(ActionEvent event) {
+
+    }
+    @FXML
+    private void addSession(ActionEvent event) {
+        int sessionId = ++lastSessionId;
+        int total_time = 21;
+        String completedWork = "Stuff";
+        Study_Session study_session = new Study_Session(loggedInUserId, sessionId, total_time, completedWork);
+        Study_SessionDAO.addStudy_Session(study_session);
     }
 
 
@@ -212,5 +247,24 @@ public class TimerController {
     @FXML
     private void openSettingsMenu() {
 
+    }
+
+    private int getLastSessionId() {
+        int maxSessionId = 0;
+        try {
+            Connection connection = SqliteConnection.getInstance();
+            String query = "SELECT MAX(sessionId) AS maxSessionId FROM study_sessions WHERE accountId = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, loggedInUserId);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                maxSessionId = rs.getInt("maxSessionId");
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return maxSessionId;
     }
 }

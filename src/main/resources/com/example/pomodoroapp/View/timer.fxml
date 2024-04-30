@@ -32,6 +32,7 @@
         <Button fx:id="startPauseButton" onAction="#startPauseTimer" text="Start" />
         <Button onAction="#resetTimer" text="Reset" />
         <Button onAction="#skipTimer" text="Skip" />
+        <Button onAction="#addSession" text="Add Session" />
     </HBox>
     <Button fx:id="loginButton" onAction="#handleLoginButtonAction" text="Sign In" />
     <HBox alignment="CENTER" spacing="10" />

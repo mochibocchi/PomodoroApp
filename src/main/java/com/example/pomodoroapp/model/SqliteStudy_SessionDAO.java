@@ -13,6 +13,9 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
         createTable();
     }
 
+    public static void addSession(Study_Session studySession) {
+    }
+
     private void createTable() {
         try {
             Statement statement = connection.createStatement();
@@ -27,24 +30,30 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
+
+
 
     @Override
     public void addStudy_Session(Study_Session study_session) {
         try {
             int accountId = getAccountId();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO study_sessions (accountId, sessionId, total_time, completedWork) VALUES (?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO study_sessions (accountId, sessionId, total_time, completedWork) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, accountId);
             statement.setInt(2, study_session.getSessionId());
             statement.setInt(3, study_session.getTotalTime());
             statement.setString(4, study_session.getCompletedWork());
-            statement.executeUpdate();
-            // Set the id of the new contact
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                study_session.setId(generatedKeys.getInt(1));
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected == 1) {
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
+                    study_session.setId(id);
+                }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -97,9 +106,7 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
         int accountId = -1; // Default value if not found
 
         try {
-            // Perform a query to retrieve the id from the accounts table
-            // You should replace 'someCriteria' with the appropriate condition to get the desired id
-            PreparedStatement statement = connection.prepareStatement("SELECT id FROM accounts WHERE firstName = 'Liam'");
+            PreparedStatement statement = connection.prepareStatement("SELECT id FROM accounts WHERE email = '?'");
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 accountId = resultSet.getInt("id");

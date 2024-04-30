@@ -27,6 +27,8 @@ public class MainController {
     @FXML
     private TextField emailTextField;
     @FXML
+    private TextField passwordTextField;
+    @FXML
     private VBox accountContainer;
     @FXML
     private ListView<Account> accountsListView;
@@ -42,6 +44,7 @@ public class MainController {
         firstNameTextField.setText(account.getFirstName());
         lastNameTextField.setText(account.getLastName());
         emailTextField.setText(account.getEmail());
+        passwordTextField.setText(account.getPassword());
     }
 
     /**
@@ -57,7 +60,6 @@ public class MainController {
              */
             private void onAccountSelected(MouseEvent mouseEvent) {
                 ListCell<Account> clickedCell = (ListCell<Account>) mouseEvent.getSource();
-                // Get the selected contact from the list view
                 Account selectedAccount = clickedCell.getItem();
                 if (selectedAccount != null) selectAccount(selectedAccount);
             }
@@ -115,6 +117,7 @@ public class MainController {
             selectedAccount.setFirstName(firstNameTextField.getText());
             selectedAccount.setLastName(lastNameTextField.getText());
             selectedAccount.setEmail(emailTextField.getText());
+            selectedAccount.setPassword(passwordTextField.getText());
             accountDAO.updateAccount(selectedAccount);
             syncAccounts();
         }
@@ -130,21 +133,6 @@ public class MainController {
         }
     }
 
-    @FXML
-    private void onAdd() {
-        // Default values for a new contact
-        final String DEFAULT_FIRST_NAME = "New";
-        final String DEFAULT_LAST_NAME = "Account";
-        final String DEFAULT_EMAIL = "";
-        Account newAccount = new Account(DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME, DEFAULT_EMAIL);
-        // Add the new contact to the database
-        accountDAO.addAccount(newAccount);
-        syncAccounts();
-        // Select the new contact in the list view
-        // and focus the first name text field
-        selectAccount(newAccount);
-        firstNameTextField.requestFocus();
-    }
 
     @FXML
     private void onCancel() {
