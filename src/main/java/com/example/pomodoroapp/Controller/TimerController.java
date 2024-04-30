@@ -251,10 +251,6 @@ public class TimerController {
                 break;
         }
     }
-    @FXML
-    private void openSettingsMenu() {
-
-    }
 
     private int getLastSessionId() {
         int maxSessionId = 0;

@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +27,7 @@ public class LoginController {
     private final IAccountDAO accountDAO = new SqliteAccountDAO();
     @FXML
     private void handleGoToRegister(ActionEvent event) {
-        loadScene("view/register.fxml", event, 520, 400);
+        loadScene("view/register.fxml", event);
     }
     private final Connection connection = SqliteConnection.getInstance();
 
@@ -46,25 +45,22 @@ public class LoginController {
         }
 
 
-        loadScene("view/timer.fxml", event, 520, 400);
-//        // Authentication logic
-//        if (authenticate(login, password)) {
-//            loadScene("view/timer.fxml", event);
-//        } else {
-//            showError("Login failed");
-//        }
     }
 
 
 
-    private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
+    private void loadScene(String fxmlPath, ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlPath));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, width, height));
+            stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+
+
 }
