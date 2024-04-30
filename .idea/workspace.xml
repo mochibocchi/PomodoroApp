@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="implement unit test for TimerControllerTest + refactor code">
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement tracking for total time elapsed (seconds) while timer is active">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
     </list>
@@ -206,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714499480280</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implement tracking for total time elapsed (seconds) while timer is active">
+      <option name="closed" value="true" />
+      <created>1714502481893</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714502481893</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +246,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
     <MESSAGE value="implement unit test for TimerControllerTest + refactor code" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement unit test for TimerControllerTest + refactor code" />
+    <MESSAGE value="Implement tracking for total time elapsed (seconds) while timer is active" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement tracking for total time elapsed (seconds) while timer is active" />
   </component>
 </project>

@@ -140,8 +140,6 @@ public class TimerController {
         if (isTimerFinished()) {
             goToNextMode();
         }
-
-        System.out.println("Total time spent: " + totalSecondsElapsed);
     }
 
 
@@ -153,6 +151,8 @@ public class TimerController {
         } else {
             pauseTimer();
             startPauseButton.setText("Start");
+            String formattedTime = displayTotalTime(totalSecondsElapsed);
+            System.out.println("Total time elapsed: " + formattedTime);
         }
 
         if (isTimerFinished()) {
@@ -174,6 +174,15 @@ public class TimerController {
         isRunning = false;
         startPauseButton.setText("Start");
     }
+
+    private String displayTotalTime(int totalSeconds) {
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
 
     @FXML
     public void resetTimer() {
