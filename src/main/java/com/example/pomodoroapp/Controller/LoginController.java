@@ -55,6 +55,8 @@ public class LoginController {
 //        }
     }
 
+    private void loadScene(String s, ActionEvent event) {
+    }
 
 
     private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
