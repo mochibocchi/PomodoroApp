@@ -42,6 +42,8 @@ public class TimerController {
     private final IAccountDAO accountDAO = new SqliteAccountDAO();
     @FXML
     private final IStudy_SessionDAO Study_SessionDAO = new SqliteStudy_SessionDAO();
+    @FXML
+    private Button settingsButton;
 
     @FXML
     private TextField totalTimeTextField;
@@ -72,9 +74,6 @@ public class TimerController {
         return loader.load();
     }
 
-
-
-
     @FXML
     private void handleLoginButtonAction(ActionEvent event) {
         try {
@@ -99,6 +98,14 @@ public class TimerController {
         String completedWork = "Stuff";
         Study_Session study_session = new Study_Session(loggedInUserId, sessionId, total_time, completedWork);
         Study_SessionDAO.addStudy_Session(study_session);
+    }
+
+    @FXML
+    private void openSettingsMenu() throws IOException {
+        Stage stage = (Stage) settingsButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/settings.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
+        stage.setScene(scene);
     }
 
 
