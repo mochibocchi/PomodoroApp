@@ -29,7 +29,7 @@ public class TimerController {
     @FXML
     private Label timerLabel;
     @FXML
-    private Button startPauseButton;
+    public Button startPauseButton;
     @FXML
     private Button pomodoroButton;
     @FXML
@@ -56,9 +56,9 @@ public class TimerController {
         lastSessionId = getLastSessionId();
     }
 
-    private final TimerModel model;
+    public final TimerModel model;
     private Timeline timeline;
-    private boolean isRunning;
+    public boolean isRunning;
 
     public TimerController() {
         this.model = new TimerModel();
@@ -142,7 +142,7 @@ public class TimerController {
     }
 
     @FXML
-    private void startPauseTimer() {
+    public void startPauseTimer() {
         if (!isRunning) {
             startTimer();
             startPauseButton.setText("Pause");
@@ -160,7 +160,7 @@ public class TimerController {
         return model.getMinutes() == 0 && model.getSeconds() == 0;
     }
 
-    private void startTimer() {
+    public void startTimer() {
         timeline.play();
         isRunning = true;
     }
@@ -172,7 +172,7 @@ public class TimerController {
     }
 
     @FXML
-    private void resetTimer() {
+    public void resetTimer() {
         timeline.stop();
         startPauseButton.setText("Start");
         isRunning = false;
