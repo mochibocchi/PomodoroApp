@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,15 +17,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="pomodoro-timer-feature" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,6 +44,13 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
     &quot;customColor&quot;: &quot;&quot;,
     &quot;associatedIndex&quot;: 2
@@ -56,16 +63,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Unnamed.executor": "Run",
-    "JUnit.TimerControllerTest.executor": "Run",
-    "JUnit.TimerControllerTest.testInitialValues.executor": "Run",
-    "JUnit.TimerControllerTest.testSkipButton.executor": "Run",
-    "JUnit.TimerTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "git-widget-placeholder": "pomodoro-timer-feature",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "git-widget-placeholder": "master"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -80,7 +78,7 @@
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\java\com\example\pomodoroapp\Icons" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.pomodoroapp.HelloApplication" />
       <module name="PomodoroApp" />
@@ -88,41 +86,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TimerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PomodoroApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimerControllerTest.testInitialValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PomodoroApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
-      <option name="METHOD_NAME" value="testInitialValues" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="JUnit.TimerControllerTest" />
-      <item itemvalue="JUnit.TimerControllerTest.testInitialValues" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.TimerControllerTest" />
-        <item itemvalue="JUnit.TimerControllerTest.testInitialValues" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="" />
+      <changelist id="e15734fc-d0a0-4174-a2fe-ce4c0e107910" name="Changes" comment="" />
       <created>1713354672111</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -152,8 +120,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
