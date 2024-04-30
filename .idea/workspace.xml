@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TimerControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +60,9 @@
     "JUnit.TimerControllerTest.testInitialValues.executor": "Run",
     "JUnit.TimerControllerTest.testSkipButton.executor": "Run",
     "JUnit.TimerTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "git-widget-placeholder": "pomodoro-timer-feature",
+    "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -79,7 +80,7 @@
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\java\com\example\pomodoroapp\Icons" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TimerControllerTest">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.pomodoroapp.HelloApplication" />
       <module name="PomodoroApp" />
@@ -121,7 +122,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e15734fc-d0a0-4174-a2fe-ce4c0e107910" name="Changes" comment="" />
+      <changelist id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="" />
       <created>1713354672111</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

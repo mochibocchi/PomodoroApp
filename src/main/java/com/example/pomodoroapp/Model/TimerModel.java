@@ -6,7 +6,7 @@ public class TimerModel {
 
 
     public TimerModel() {
-        this.minutes = 15;
+        this.minutes = 25;
         this.seconds = 0;
         this.mode = TimerMode.POMODORO;
     }
