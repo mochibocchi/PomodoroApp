@@ -50,6 +50,8 @@ public class TimerController {
     private int loggedInUserId;
     private int lastSessionId;
 
+    int totalSecondsElapsed;
+
     public void setLoggedInUserId(int loggedInUserId) {
         this.loggedInUserId = loggedInUserId;
         lastSessionId = getLastSessionId();
@@ -107,20 +109,21 @@ public class TimerController {
         stage.setScene(scene);
     }
 
-
     @FXML
     private void initialize() {
         updateTimerLabel();
         toggleHighlight(pomodoroButton);
+
         timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), e -> {
                     if (model.getSeconds() > 0) {
                         model.setSeconds(model.getSeconds() - 1);
+                        totalSecondsElapsed++;
                     } else if (model.getMinutes() > 0) {
                         model.setSeconds(59);
                         model.setMinutes(model.getMinutes() - 1);
-                    }
-                    else {
+                        totalSecondsElapsed++;
+                    } else {
                         timeline.stop();
                     }
                     updateTimerLabel();
@@ -134,11 +137,13 @@ public class TimerController {
         String seconds = String.format("%02d", model.getSeconds());
         timerLabel.setText(minutes + ":" + seconds);
 
-        if (isTimerFinished())
-        {
+        if (isTimerFinished()) {
             goToNextMode();
         }
+
+        System.out.println("Total time spent: " + totalSecondsElapsed);
     }
+
 
     @FXML
     public void startPauseTimer() {
