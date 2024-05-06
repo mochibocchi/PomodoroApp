@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/AccountData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/ViewSessions.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/session.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IAccountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IStudy_SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IStudy_SessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteAccountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteStudy_SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteStudy_SessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/Study_Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/Study_Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Timmy &lt;116723040+mochibocchi@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -260,7 +246,47 @@
       <option name="project" value="LOCAL" />
       <updated>1714502481893</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in.">
+      <option name="closed" value="true" />
+      <created>1715000115222</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000115222</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in.">
+      <option name="closed" value="true" />
+      <created>1715000155605</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000155605</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in.">
+      <option name="closed" value="true" />
+      <created>1715000166571</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000166571</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files">
+      <option name="closed" value="true" />
+      <created>1715000243022</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000243022</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files">
+      <option name="closed" value="true" />
+      <created>1715000252361</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000252361</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +317,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
+    <MESSAGE value="Implement tracking for total time elapsed (seconds) while timer is active" />
+    <MESSAGE value="Display total elapsed time while pomodoro timer is active in console log. Will need to connect it to user's database so we can keep track of total time studied later" />
+    <MESSAGE value="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in." />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master_account' into master_account&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/Controller/TimerController.java" />
+    <MESSAGE value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
