@@ -35,8 +35,11 @@ public interface IAccountDAO {
      */
     public List<Account> getAllAccounts();
 
+
     public boolean login(String email, String password);
 
     int getLoggedInUserId(String email, String password);
+
+    int getAccountId(String email, String password);
 }
 
