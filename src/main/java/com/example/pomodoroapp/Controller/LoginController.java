@@ -26,43 +26,37 @@ public class LoginController {
     private TextField passwordTextField;
     @FXML
     private final IAccountDAO accountDAO = new SqliteAccountDAO();
-    private int loggedInUserId;
-    private int accountId;
-
-
-
     @FXML
     private void handleGoToRegister(ActionEvent event) {
-        loadScene("view/register.fxml", event,540,400);
+        loadScene("view/register.fxml", event, 520, 400);
     }
     private final Connection connection = SqliteConnection.getInstance();
 
 
-    private void handleSuccessfulLogin(int accountId) {
-        AccountData.getInstance().setAccountId(accountId);
-        
-    }
-
-
-
-
     @FXML
     private void handleLogin(ActionEvent event) {
-        String email = emailTextField.getText();
-        String password = passwordTextField.getText();
-        int accountId = accountDAO.getAccountId(email, password);
-        if (accountId != -1) {
+        final String email = emailTextField.getText();
+        final String password = passwordTextField.getText();
+        int loggedInUserId = accountDAO.getLoggedInUserId(email, password);
+        if (loggedInUserId != -1) {
             System.out.println("Login successful");
-            handleSuccessfulLogin(accountId);
-            loadScene("view/timer.fxml", event, 540, 400);
-
-        }
-        else {
+            loadScene("view/timer.fxml", event);
+        } else {
             System.out.println("Invalid email or password");
         }
 
+
+        loadScene("view/timer.fxml", event, 520, 400);
+//        // Authentication logic
+//        if (authenticate(login, password)) {
+//            loadScene("view/timer.fxml", event);
+//        } else {
+//            showError("Login failed");
+//        }
     }
 
+    private void loadScene(String s, ActionEvent event) {
+    }
 
 
     private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
@@ -75,5 +69,4 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-
 }
