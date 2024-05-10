@@ -118,7 +118,6 @@ public class SqliteAccountDAO implements IAccountDAO {
         return accounts;
     }
 
-
     public boolean login(String email, String password) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM accounts WHERE email = ? AND password = ?");
@@ -155,25 +154,6 @@ public class SqliteAccountDAO implements IAccountDAO {
         }
 
         return userId;
-    }
-
-    @Override
-    public int getAccountId(String email, String password) {
-        int accountId = -1;
-
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT id FROM accounts WHERE email = ? AND password = ?");
-            statement.setString(1, email);
-            statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                accountId = resultSet.getInt("id");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return accountId;
     }
 
 
