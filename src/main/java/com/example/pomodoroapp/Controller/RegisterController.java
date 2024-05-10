@@ -4,7 +4,6 @@ import com.example.pomodoroapp.Model.*;
 import com.example.pomodoroapp.Model.IAccountDAO;
 import com.example.pomodoroapp.Model.SqliteAccountDAO;
 import com.example.pomodoroapp.Model.IStudy_SessionDAO;
-import com.example.pomodoroapp.Model.SqliteStudy_SessionDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +11,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
 public class RegisterController {
     @FXML
@@ -70,6 +67,12 @@ public class RegisterController {
         final String password = passwordTextField.getText();
         Account newAccount = new Account(firstName, lastName, email, password);
         accountDAO.addAccount(newAccount);
+        loadScene("view/login.fxml", event);
+    }
+
+    @FXML
+    private void logout(ActionEvent event) {
+        AccountData.getInstance().setAccountId(0);
         loadScene("view/login.fxml", event);
     }
 }

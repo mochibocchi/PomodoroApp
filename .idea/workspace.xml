@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files">
+      <change afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/SessionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/AccountData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/ViewSessions.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/session.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IAccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IStudy_SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/IStudy_SessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteAccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteStudy_SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteStudy_SessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/timer.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +92,7 @@
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "master__account",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -163,7 +178,7 @@
         <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
         <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
         <item itemvalue="JUnit.TimerControllerTest" />
-        <item itemvalue="JUnit.TimerControllerTest" />
+        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
       </list>
     </recent_temporary>
   </component>
@@ -200,6 +215,7 @@
       <workItem from="1714957705875" duration="5861000" />
       <workItem from="1714964689697" duration="249000" />
       <workItem from="1714981504561" duration="10716000" />
+      <workItem from="1715344338384" duration="871000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
       <option name="closed" value="true" />
