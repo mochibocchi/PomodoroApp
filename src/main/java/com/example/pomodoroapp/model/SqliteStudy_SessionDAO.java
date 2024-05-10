@@ -35,8 +35,9 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
             while (resultSet.next()) {
                 int sessionId = resultSet.getInt("sessionId");
                 int total_time = resultSet.getInt("total_time");
+                long session_date = resultSet.getLong("session_date");
                 String completedWork = resultSet.getString("completedWork");
-                Study_Session session = new Study_Session(accountId, total_time, completedWork);
+                Study_Session session = new Study_Session(accountId, total_time,session_date, completedWork);
                 session.setSessionId(sessionId);
                 sessions.add(session);
             }
@@ -55,6 +56,7 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
                     + "sessionId INTEGER PRIMARY KEY,"
                     + "accountId INTEGER NOT NULL,"
                     + "total_time INTEGER NOT NULL,"
+                    + "session_date INTEGER NOT NULL,"
                     + "completedWork TEXT NOT NULL,"
                     + "FOREIGN KEY (accountId) REFERENCES accounts(id)"
                     + ")";
@@ -71,10 +73,12 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
     @Override
     public void addStudy_Session( Study_Session study_session) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO study_sessions ( accountId, total_time, completedWork) VALUES (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO study_sessions ( accountId, total_time,session_date, completedWork) VALUES (?, ?, ?, ?)");
             statement.setInt(1, study_session.getLoggedInUserId());
             statement.setInt(2, AccountData.getInstance().getTotalTimeElapsed());
-            statement.setString(3, study_session.getCompletedWork());
+            statement.setLong(3, study_session.getSessionDate());
+            statement.setString(4, study_session.getCompletedWork());
+
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected == 1) {
                 study_session.setSessionId(study_session.getSessionId());
@@ -83,23 +87,5 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-
-
-    public int getAccountId() {
-        int accountId = -1;
-
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT id FROM accounts WHERE email = '?'");
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                accountId = resultSet.getInt("id");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return accountId;
     }
 }

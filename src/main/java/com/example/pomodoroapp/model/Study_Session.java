@@ -1,19 +1,16 @@
 package com.example.pomodoroapp.Model;
 
-import javafx.beans.binding.BooleanExpression;
-import javafx.beans.value.ObservableValue;
-
-import java.util.List;
-
 public class Study_Session {
     private int accountId;
     private int sessionId;
     private int total_time;
     private String completedWork;
+    private long session_date;
 
-    public Study_Session(int accountId, int total_time, String completedWork) {
+    public Study_Session(int accountId, int total_time, long session_date, String completedWork) {
         this.accountId = accountId;
         this.total_time = total_time;
+        this.session_date = session_date;
         this.completedWork = completedWork;
     }
 
@@ -48,4 +45,8 @@ public class Study_Session {
         return accountId;
     }
 
+
+    public long getSessionDate() {
+        return session_date;
+    }
 }

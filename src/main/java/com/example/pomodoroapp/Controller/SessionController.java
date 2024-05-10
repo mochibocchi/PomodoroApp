@@ -20,6 +20,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class SessionController {
@@ -51,8 +54,10 @@ public class SessionController {
 
         int accountId = getLoggedInUserId();
         int total_time = AccountData.getInstance().getTotalTimeElapsed();
+        LocalDateTime current_date = LocalDateTime.now();
+        long session_date = current_date.toEpochSecond(java.time.ZoneOffset.UTC);
         String completedWork = completedWorkTextField.getText();
-        Study_Session study_session = new Study_Session(accountId, total_time, completedWork);
+        Study_Session study_session = new Study_Session(accountId, total_time, session_date,completedWork);
         Study_SessionDAO.addStudy_Session(study_session);
         loadScene("view/timer.fxml", event, 520, 400);
     }
@@ -91,10 +96,25 @@ public class SessionController {
             return new SimpleIntegerProperty(session.getTotalTime()).asObject();
         });
 
+        TableColumn<Study_Session, String> sessionDateColumn = new TableColumn<>("Session Date");
+        sessionDateColumn.setCellValueFactory(cellData -> {
+            Study_Session session = cellData.getValue();
+            long sessionDateTimestamp = session.getSessionDate();
+            LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(sessionDateTimestamp, 0, ZoneOffset.UTC);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            return new SimpleStringProperty(formatter.format(sessionDate));
+        });
+
         TableColumn<Study_Session, String> completedWorkColumn = new TableColumn<>("Completed Work");
         completedWorkColumn.setCellValueFactory(cellData -> {Study_Session session = cellData.getValue();
-            return new SimpleStringProperty(session.getCompletedWork());});
-        sessionTable.getColumns().setAll(sessionIdColumn, totalTimeColumn, completedWorkColumn);
+            return new SimpleStringProperty(session.getCompletedWork());
+        });
+
+        sessionTable.getColumns().setAll(sessionIdColumn, totalTimeColumn,sessionDateColumn, completedWorkColumn);
+
+
+
+
     }
 
 }
