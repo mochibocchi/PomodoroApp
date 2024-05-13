@@ -54,22 +54,16 @@ public class TimerController {
 
     int totalSecondsElapsed;
 
-
-
-    
-    
-
     public final TimerModel model;
     private Timeline timeline;
     public boolean isRunning;
     private String formattedTime;
+    private int pomodoroCountCycle;
 
     public TimerController() {
         this.model = new TimerModel();
         this.isRunning = false;
     }
-
-
 
     private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
         try {
@@ -113,6 +107,7 @@ public class TimerController {
 
     @FXML
     private void initialize() {
+        pomodoroCountCycle = 0;
         updateTimerLabel();
         toggleHighlight(pomodoroButton);
 
@@ -238,16 +233,28 @@ public class TimerController {
 
         switch (currentMode) {
             case POMODORO:
-                initShortBreak();
-                updateTimerLabel();
-                toggleHighlight(shortBreakButton);
+                pomodoroCountCycle++;
+                if ((pomodoroCountCycle) % 4 == 0) {
+                    System.out.println(pomodoroCountCycle);
+                    initLongBreak();
+                    updateTimerLabel();
+                    toggleHighlight(longBreakButton);
+                    break;
+                }
+                else {
+                    initShortBreak();
+                    updateTimerLabel();
+                    toggleHighlight(shortBreakButton);
+                }
                 break;
             case SHORT_BREAK:
-                initLongBreak();
+                initPomodoro();
                 updateTimerLabel();
-                toggleHighlight(longBreakButton);
+                toggleHighlight(pomodoroButton);
+                System.out.println(pomodoroCountCycle);
                 break;
             case LONG_BREAK:
+                System.out.println(pomodoroCountCycle);
                 initPomodoro();
                 updateTimerLabel();
                 toggleHighlight(pomodoroButton);
