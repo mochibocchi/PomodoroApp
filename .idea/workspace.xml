@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -296,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715000984452</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
+      <option name="closed" value="true" />
+      <created>1715581988948</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715581988948</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +337,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
     <MESSAGE value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
+    <MESSAGE value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
   </component>
 </project>

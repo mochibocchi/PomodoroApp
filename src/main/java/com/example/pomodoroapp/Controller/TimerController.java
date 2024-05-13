@@ -212,6 +212,24 @@ public class TimerController {
         model.setSeconds(0);
     }
 
+    private void goToPomodoroMode() {
+        initPomodoro();
+        updateTimerLabel();
+        toggleHighlight(pomodoroButton);
+    }
+
+    private void goToShortBreakMode() {
+        initShortBreak();
+        updateTimerLabel();
+        toggleHighlight(shortBreakButton);
+    }
+
+    private void goToLongBreakMode() {
+        initLongBreak();
+        updateTimerLabel();
+        toggleHighlight(longBreakButton);
+    }
+
     private void toggleHighlight (Button button) {
         pomodoroButton.getStyleClass().remove("highlight-button");
         shortBreakButton.getStyleClass().remove("highlight-button");
@@ -235,48 +253,27 @@ public class TimerController {
             case POMODORO:
                 pomodoroCountCycle++;
                 if ((pomodoroCountCycle) % 4 == 0) {
-                    System.out.println(pomodoroCountCycle);
-                    initLongBreak();
-                    updateTimerLabel();
-                    toggleHighlight(longBreakButton);
-                    break;
+                    goToLongBreakMode();
                 }
                 else {
-                    initShortBreak();
-                    updateTimerLabel();
-                    toggleHighlight(shortBreakButton);
+                    goToShortBreakMode();
                 }
                 break;
-            case SHORT_BREAK:
-                initPomodoro();
-                updateTimerLabel();
-                toggleHighlight(pomodoroButton);
-                System.out.println(pomodoroCountCycle);
-                break;
-            case LONG_BREAK:
-                System.out.println(pomodoroCountCycle);
-                initPomodoro();
-                updateTimerLabel();
-                toggleHighlight(pomodoroButton);
+            case SHORT_BREAK, LONG_BREAK:
+                goToPomodoroMode();
                 break;
         }
     }
     public void updateTimerGUI(TimerMode currentMode) {
         switch (currentMode) {
             case SHORT_BREAK:
-                initShortBreak();
-                updateTimerLabel();
-                toggleHighlight(shortBreakButton);
+                goToShortBreakMode();
                 break;
             case LONG_BREAK:
-                initLongBreak();
-                updateTimerLabel();
-                toggleHighlight(longBreakButton);
+                goToLongBreakMode();
                 break;
             default:
-                initPomodoro();
-                updateTimerLabel();
-                toggleHighlight(pomodoroButton);
+                goToPomodoroMode();
                 break;
         }
     }
