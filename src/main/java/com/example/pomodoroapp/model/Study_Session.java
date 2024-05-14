@@ -1,4 +1,3 @@
-
 package com.example.pomodoroapp.Model;
 
 public class Study_Session {
@@ -6,21 +5,24 @@ public class Study_Session {
     private int sessionId;
     private int total_time;
     private String completedWork;
+    private long session_date;
 
-    public Study_Session(int accountId, int total_time, int sessionId, String completedWork) {
+    public Study_Session(int accountId, int total_time, long session_date, String completedWork) {
         this.accountId = accountId;
         this.total_time = total_time;
-        this.sessionId = sessionId;
+        this.session_date = session_date;
         this.completedWork = completedWork;
     }
 
-    public int getAccountId() {
 
-        return accountId;
+
+
+    public int getSessionId() {
+        return sessionId;
     }
 
-    public void setId(int id) {
-        this.accountId = accountId;
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
     }
 
     public int getTotalTime() {
@@ -31,19 +33,20 @@ public class Study_Session {
         this.total_time = total_time;
     }
 
-    public int getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(int sessionId) {
-        this.sessionId = sessionId;
-    }
-
     public String getCompletedWork() {
         return completedWork;
     }
 
     public void setCompletedWork(String completedWork) {
         this.completedWork = completedWork;
+    }
+
+    public int getLoggedInUserId() {
+        return accountId;
+    }
+
+
+    public long getSessionDate() {
+        return session_date;
     }
 }

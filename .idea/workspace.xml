@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TimerController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,16 +17,23 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="JavaFXApplication" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Timmy &lt;116723040+mochibocchi@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="authentication" />
+        <entry key="$PROJECT_DIR$" value="master_account" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,13 +50,6 @@
     &quot;accountId&quot;: &quot;c4cb64c0-844e-4fdf-bc19-304a99dd0fb6&quot;
   }
 }</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -56,12 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.TimerControllerTest.executor": "Run",
+    "JUnit.TimerControllerTest.testPomodoroTimerValue.executor": "Run",
+    "JUnit.TimerControllerTest.testShortBreakCheckMode.executor": "Debug",
+    "JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "git-widget-placeholder": "pomodoro-timer-feature",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
 }</component>
   <component name="RecentsManager">
@@ -78,13 +98,85 @@
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.pomodoroapp.HelloApplication" />
+      <module name="PomodoroApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest.testPomodoroTimerValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="METHOD_NAME" value="testPomodoroTimerValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest.testShortBreakCheckMode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="METHOD_NAME" value="testShortBreakCheckMode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimerControllerTest.testShortBreakCheckSeconds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
+      <option name="METHOD_NAME" value="testShortBreakCheckSeconds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.TimerControllerTest" />
+      <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
+      <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
+      <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
+        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
+        <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
+        <item itemvalue="JUnit.TimerControllerTest" />
+        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="ShelveChangesManager">
     <option name="remove_strategy" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e15734fc-d0a0-4174-a2fe-ce4c0e107910" name="Changes" comment="" />
+      <changelist id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
       <created>1713354672111</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -95,6 +187,19 @@
       <workItem from="1714389113250" duration="4867000" />
       <workItem from="1714394170578" duration="6950000" />
       <workItem from="1714435492745" duration="7721000" />
+      <workItem from="1714652506602" duration="509000" />
+      <workItem from="1714730716771" duration="698000" />
+      <workItem from="1714736112018" duration="57000" />
+      <workItem from="1714796971670" duration="14899000" />
+      <workItem from="1714895753884" duration="17787000" />
+      <workItem from="1714957705875" duration="5861000" />
+      <workItem from="1714964689697" duration="249000" />
+      <workItem from="1714981504561" duration="10716000" />
+      <workItem from="1715001156349" duration="389000" />
+      <workItem from="1715001712789" duration="5000" />
+      <workItem from="1715051112001" duration="1212000" />
+      <workItem from="1715335745094" duration="283000" />
+      <workItem from="1715339569025" duration="2689000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
       <option name="closed" value="true" />
@@ -128,7 +233,79 @@
       <option name="project" value="LOCAL" />
       <updated>1714451771063</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implement unit test for TimerControllerTest + refactor code">
+      <option name="closed" value="true" />
+      <created>1714499480280</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714499480280</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implement tracking for total time elapsed (seconds) while timer is active">
+      <option name="closed" value="true" />
+      <created>1714502481893</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714502481893</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in.">
+      <option name="closed" value="true" />
+      <created>1715000115222</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000115222</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in.">
+      <option name="closed" value="true" />
+      <created>1715000155605</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000155605</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Have linked accounts to study sessions, made the timer set to the session table and able to properly implement a study session. You can also view study sessions for the account that is logged in.">
+      <option name="closed" value="true" />
+      <created>1715000166571</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000166571</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files">
+      <option name="closed" value="true" />
+      <created>1715000243022</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000243022</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files">
+      <option name="closed" value="true" />
+      <created>1715000252361</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000252361</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
+      <option name="closed" value="true" />
+      <created>1715000984452</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715000984452</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
+      <option name="closed" value="true" />
+      <created>1715581988948</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715581988948</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +336,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java" />
+    <MESSAGE value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
+    <MESSAGE value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
   </component>
 </project>

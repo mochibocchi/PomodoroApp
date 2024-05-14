@@ -11,21 +11,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.awt.*;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Objects;
+import java.util.List;
+
 
 public class TimerController {
+    public Button timerButton;
+
     @FXML
-    public Button loginButton;
+    private Button showSessionButton;
+    @FXML
+    private Button signoutButton;
     @FXML
     private Label timerLabel;
     @FXML
@@ -39,6 +39,8 @@ public class TimerController {
     @FXML
     private Button sessionButton;
     @FXML
+    private Button GoToSessionButton;
+    @FXML
     private final IAccountDAO accountDAO = new SqliteAccountDAO();
     @FXML
     private final IStudy_SessionDAO Study_SessionDAO = new SqliteStudy_SessionDAO();
@@ -48,56 +50,49 @@ public class TimerController {
     @FXML
     private TextField totalTimeTextField;
     private TextField completedWorkTextField;
-    private int loggedInUserId;
-    private int lastSessionId;
+    private TextField sessionIdTextField;
 
-    public void setLoggedInUserId(int loggedInUserId) {
-        this.loggedInUserId = loggedInUserId;
-        lastSessionId = getLastSessionId();
-    }
+    int totalSecondsElapsed;
 
     public final TimerModel model;
     private Timeline timeline;
     public boolean isRunning;
+    private String formattedTime;
+    private int pomodoroCountCycle;
 
     public TimerController() {
         this.model = new TimerModel();
         this.isRunning = false;
     }
 
-    private Parent loadFXML(String fxmlPath) throws IOException {
-        URL url = getClass().getResource(fxmlPath);
-        if (url == null) {
-            throw new RuntimeException("Failed to load FXML file. URL is null for " + fxmlPath);
-        }
-        FXMLLoader loader = new FXMLLoader(url);
-        return loader.load();
-    }
-
-    @FXML
-    private void handleLoginButtonAction(ActionEvent event) {
+    private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
         try {
-            // Change the scene to login.fxml
-            Parent loginRoot = FXMLLoader.load(HelloApplication.class.getResource("view/register.fxml"));
-            Scene scene = new Scene(loginRoot);
+            Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlPath));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
+            stage.setScene(new Scene(root, width, height));
             stage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void handleSessionButtonAction(ActionEvent event) {
 
+
+    @FXML
+    private void openSession(ActionEvent event) throws IOException {
+        Stage stage = (Stage) GoToSessionButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/session.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void GoToTimer(ActionEvent event) throws IOException {
+        loadScene("view/timer.fxml",event,520,400);
     }
     @FXML
-    private void addSession(ActionEvent event) {
-        int sessionId = ++lastSessionId;
-        int total_time = 21;
-        String completedWork = "Stuff";
-        Study_Session study_session = new Study_Session(loggedInUserId, sessionId, total_time, completedWork);
-        Study_SessionDAO.addStudy_Session(study_session);
+    private void handleLoginButtonAction(ActionEvent event) throws IOException {
+        loadScene("view/register.fxml",event,520,400);
     }
 
     @FXML
@@ -109,19 +104,23 @@ public class TimerController {
     }
 
 
+
     @FXML
     private void initialize() {
+        pomodoroCountCycle = 0;
         updateTimerLabel();
         toggleHighlight(pomodoroButton);
+
         timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), e -> {
                     if (model.getSeconds() > 0) {
                         model.setSeconds(model.getSeconds() - 1);
+                        totalSecondsElapsed++;
                     } else if (model.getMinutes() > 0) {
                         model.setSeconds(59);
                         model.setMinutes(model.getMinutes() - 1);
-                    }
-                    else {
+                        totalSecondsElapsed++;
+                    } else {
                         timeline.stop();
                     }
                     updateTimerLabel();
@@ -129,17 +128,17 @@ public class TimerController {
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
-
+    @FXML
     private void updateTimerLabel() {
         String minutes = String.format("%02d", model.getMinutes());
         String seconds = String.format("%02d", model.getSeconds());
         timerLabel.setText(minutes + ":" + seconds);
 
-        if (isTimerFinished())
-        {
-            nextMode();
+        if (isTimerFinished()) {
+            goToNextMode();
         }
     }
+
 
     @FXML
     public void startPauseTimer() {
@@ -149,6 +148,9 @@ public class TimerController {
         } else {
             pauseTimer();
             startPauseButton.setText("Start");
+            String formattedTime = displayTotalTime(totalSecondsElapsed);
+            System.out.println("Total time elapsed: " + totalSecondsElapsed);
+            AccountData.getInstance().addToTotalTimeElapsed(totalSecondsElapsed);
         }
 
         if (isTimerFinished()) {
@@ -170,6 +172,15 @@ public class TimerController {
         isRunning = false;
         startPauseButton.setText("Start");
     }
+    @FXML
+    private String displayTotalTime(int totalSeconds) {
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
 
     @FXML
     public void resetTimer() {
@@ -177,45 +188,44 @@ public class TimerController {
         startPauseButton.setText("Start");
         isRunning = false;
         TimerMode currentMode = model.getMode();
-        setTimerMode(currentMode);
+        updateTimerGUI(currentMode);
 
     }
-    private void setTimerMode(TimerMode currentMode) {
-        switch (currentMode) {
-            case SHORT_BREAK:
-                setShortBreak();
-                break;
-            case LONG_BREAK:
-                setLongBreak();
-                break;
-            default:
-                setPomodoro();
-                break;
-        }
-    }
     @FXML
-    private void setPomodoro() {
+    public void initPomodoro() {
         model.setMode(TimerMode.POMODORO);
         model.setMinutes(25);
         model.setSeconds(0);
+    }
+
+    @FXML
+    public void initShortBreak() {
+        model.setMode(TimerMode.SHORT_BREAK);
+        model.setMinutes(5);
+        model.setSeconds(0);
+    }
+
+    @FXML
+    public void initLongBreak() {
+        model.setMode(TimerMode.LONG_BREAK);
+        model.setMinutes(10);
+        model.setSeconds(0);
+    }
+
+    private void goToPomodoroMode() {
+        initPomodoro();
         updateTimerLabel();
         toggleHighlight(pomodoroButton);
     }
 
-    @FXML
-    private void setShortBreak() {
-        model.setMode(TimerMode.SHORT_BREAK);
-        model.setMinutes(5);
-        model.setSeconds(0);
+    private void goToShortBreakMode() {
+        initShortBreak();
         updateTimerLabel();
         toggleHighlight(shortBreakButton);
     }
 
-    @FXML
-    private void setLongBreak() {
-        model.setMode(TimerMode.LONG_BREAK);
-        model.setMinutes(10);
-        model.setSeconds(0);
+    private void goToLongBreakMode() {
+        initLongBreak();
         updateTimerLabel();
         toggleHighlight(longBreakButton);
     }
@@ -235,38 +245,61 @@ public class TimerController {
         updateTimerLabel();
     }
 
-    private void nextMode() {
+    private void goToNextMode() {
 
         TimerMode currentMode = model.getMode();
 
         switch (currentMode) {
             case POMODORO:
-                setShortBreak();
+                pomodoroCountCycle++;
+                if ((pomodoroCountCycle) % 4 == 0) {
+                    goToLongBreakMode();
+                }
+                else {
+                    goToShortBreakMode();
+                }
                 break;
+            case SHORT_BREAK, LONG_BREAK:
+                goToPomodoroMode();
+                break;
+        }
+    }
+    public void updateTimerGUI(TimerMode currentMode) {
+        switch (currentMode) {
             case SHORT_BREAK:
-                setLongBreak();
+                goToShortBreakMode();
                 break;
             case LONG_BREAK:
-                setPomodoro();
+                goToLongBreakMode();
+                break;
+            default:
+                goToPomodoroMode();
                 break;
         }
     }
-    private int getLastSessionId() {
-        int maxSessionId = 0;
-        try {
-            Connection connection = SqliteConnection.getInstance();
-            String query = "SELECT MAX(sessionId) AS maxSessionId FROM study_sessions WHERE accountId = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, loggedInUserId);
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                maxSessionId = rs.getInt("maxSessionId");
-            }
-            rs.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return maxSessionId;
+    @FXML
+    private void transitionToPomodoro() {
+        updateTimerGUI(TimerMode.POMODORO);
     }
+    @FXML
+    private void transitionToShortBreak() {
+        updateTimerGUI(TimerMode.SHORT_BREAK);
+    }
+    @FXML
+    private void transitionToLongBreak() {
+        updateTimerGUI(TimerMode.LONG_BREAK);
+    }
+
+    @FXML
+    private void logout(ActionEvent event) {
+        AccountData.getInstance().setAccountId(0);
+        loadScene("view/login.fxml", event,520,400);
+    }
+
+    @FXML
+    private void GoToSessions(ActionEvent event) {
+        loadScene("view/ViewSessions.fxml", event,520, 400);
+    }
+
+
 }
