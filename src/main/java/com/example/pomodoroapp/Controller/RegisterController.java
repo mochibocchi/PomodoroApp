@@ -60,19 +60,60 @@ public class RegisterController {
 
 
     @FXML
-    private void onRegister(ActionEvent event) {
+    public void onRegister(ActionEvent event) {
         final String firstName = firstNameTextField.getText();
         final String lastName = lastNameTextField.getText();
         final String email = emailTextField.getText();
         final String password = passwordTextField.getText();
+
+        if (!isValidEmail(email)) {
+            System.out.println("Invalid Email: Please enter a valid email address.");
+            return;
+        }
+        if (!isValidPassword(password)) {
+            System.out.println("Invalid Password: Password must be at least 12 characters long containing at least 1 special character or number.");
+            return;
+        }
+
         Account newAccount = new Account(firstName, lastName, email, password);
         accountDAO.addAccount(newAccount);
         loadScene("view/login.fxml", event);
     }
 
+    public boolean isValidEmail(String email) {
+        return email.contains("@") && email.contains(".");
+    }
+    public boolean isValidPassword(String password) {
+        if (password.length() < 12) {
+            return false;
+        }
+        boolean security_check = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c) || !Character.isLetterOrDigit(c)) {
+                security_check = true;
+                break;
+            }
+        }
+        return security_check;
+    }
+
+
+
     @FXML
     private void logout(ActionEvent event) {
         AccountData.getInstance().setAccountId(0);
         loadScene("view/login.fxml", event);
+    }
+
+    public void setFirstNameTextField(String firstName) {
+    }
+
+    public void setLastNameTextField(String lastName) {
+    }
+
+    public void setEmailTextField(String email) {
+    }
+
+    public void setPasswordTextField(String password) {
     }
 }

@@ -13,10 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class LoginController {
     @FXML
     public Button loginButton;
@@ -47,7 +43,7 @@ public class LoginController {
 
 
     @FXML
-    private void handleLogin(ActionEvent event) {
+    public void handleLogin(ActionEvent event) {
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
         int accountId = accountDAO.getAccountId(email, password);
