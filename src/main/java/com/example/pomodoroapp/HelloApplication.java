@@ -19,7 +19,6 @@ import java.io.IOException;
             stage.show();
             LoginController loginController = fxmlLoader.getController();
             SessionController sessionController = new SessionController();
-
         }
 
         public static void main(String[] args) {
