@@ -7,7 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="uncomment LoginControllerTest and RegisterControllerTest">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,15 +72,19 @@
     &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.LoginControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginControllerTest.testHandleLogin_InvalidCredentials.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginControllerTest.testHandleLogin_ValidCredentials.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegisterControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TimerControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TimerControllerTest.testPomodoroTimerValue.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TimerControllerTest.testShortBreakCheckMode.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PomodoroApp [org.apache.maven.plugins:maven-javadoc-plugin:3.4.0:javadoc].executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;integration&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -81,10 +92,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.48965517&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.pomodoroapp.Controller" />
@@ -107,6 +119,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest.testHandleLogin_InvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginControllerTest" />
+      <option name="METHOD_NAME" value="testHandleLogin_InvalidCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest.testHandleLogin_ValidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginControllerTest" />
+      <option name="METHOD_NAME" value="testHandleLogin_ValidCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TimerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PomodoroApp" />
       <option name="PACKAGE_NAME" value="" />
@@ -116,50 +166,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TimerControllerTest.testPomodoroTimerValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PomodoroApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
-      <option name="METHOD_NAME" value="testPomodoroTimerValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimerControllerTest.testShortBreakCheckMode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PomodoroApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
-      <option name="METHOD_NAME" value="testShortBreakCheckMode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimerControllerTest.testShortBreakCheckSeconds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PomodoroApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TimerControllerTest" />
-      <option name="METHOD_NAME" value="testShortBreakCheckSeconds" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.LoginControllerTest.testHandleLogin_ValidCredentials" />
+      <item itemvalue="JUnit.LoginControllerTest" />
+      <item itemvalue="JUnit.LoginControllerTest.testHandleLogin_InvalidCredentials" />
+      <item itemvalue="JUnit.RegisterControllerTest" />
       <item itemvalue="JUnit.TimerControllerTest" />
-      <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
-      <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
-      <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
-        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
-        <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
+        <item itemvalue="JUnit.LoginControllerTest.testHandleLogin_ValidCredentials" />
+        <item itemvalue="JUnit.LoginControllerTest" />
+        <item itemvalue="JUnit.RegisterControllerTest" />
         <item itemvalue="JUnit.TimerControllerTest" />
-        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
+        <item itemvalue="JUnit.LoginControllerTest.testHandleLogin_InvalidCredentials" />
       </list>
     </recent_temporary>
   </component>
