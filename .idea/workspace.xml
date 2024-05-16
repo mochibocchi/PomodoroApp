@@ -7,13 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="uncomment LoginControllerTest and RegisterControllerTest">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="edit workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715664252690</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="edit workspace.xml">
+      <option name="closed" value="true" />
+      <created>1715842647906</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715842647906</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +375,8 @@
     <MESSAGE value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
     <MESSAGE value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
     <MESSAGE value="uncomment LoginControllerTest and RegisterControllerTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="uncomment LoginControllerTest and RegisterControllerTest" />
+    <MESSAGE value="edit workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
