@@ -6,6 +6,7 @@ module com.example.pomodoroapp {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires java.desktop;
+    requires javafx.graphics;
 
     opens com.example.pomodoroapp to javafx.fxml;
     exports com.example.pomodoroapp;

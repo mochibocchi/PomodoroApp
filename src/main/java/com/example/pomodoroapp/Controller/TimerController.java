@@ -301,5 +301,8 @@ public class TimerController {
         loadScene("view/ViewSessions.fxml", event,520, 400);
     }
 
-
+    @FXML
+    private void GoToTasklist(ActionEvent event) throws IOException {
+        loadScene("view/tasklist.fxml",event,520,400);
+    }
 }
