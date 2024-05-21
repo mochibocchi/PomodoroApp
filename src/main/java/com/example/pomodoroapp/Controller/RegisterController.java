@@ -38,7 +38,9 @@ public class RegisterController {
     @FXML
     private ListView<Account> accountsListView;
 
-
+    public RegisterController() {
+        this.firstNameTextField = new TextField();
+    }
 
     @FXML
     private void handleGoToLogin(ActionEvent event) {
@@ -106,14 +108,18 @@ public class RegisterController {
     }
 
     public void setFirstNameTextField(String firstName) {
+        firstNameTextField.setText(firstName);
     }
 
     public void setLastNameTextField(String lastName) {
+        lastNameTextField.setText(lastName);
     }
 
     public void setEmailTextField(String email) {
+        emailTextField.setText(email);
     }
 
     public void setPasswordTextField(String password) {
+        passwordTextField.setText(password);
     }
 }

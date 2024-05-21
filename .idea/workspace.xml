@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/MockLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LoginControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fd53720-26ea-4a71-ad1e-e02eb0760546.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6fd53720-26ea-4a71-ad1e-e02eb0760546.xml" afterDir="false" />
+    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Added graph visualisation and some not entirely finished mock tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/ITasksDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/SqliteTasksDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/Study_Tasks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TasklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TasklistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteStudy_SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/SqliteStudy_SessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/Study_Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/model/Study_Session.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/ViewSessions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/ViewSessions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/session.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/tasklist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/tasklist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +33,7 @@
         <option value="Enum" />
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -75,6 +81,7 @@
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.LoginControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.RegisterControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegisterControllerTest.testOnRegister_ValidData.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TimerControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TimerControllerTest.testPomodoroTimerValue.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TimerControllerTest.testShortBreakCheckMode.executor&quot;: &quot;Debug&quot;,
@@ -84,6 +91,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Liam/Downloads/PomodoroApp(Brandon)/PomodoroApp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -107,11 +115,34 @@
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp\View" />
       <recent name="C:\Users\timmy\IdeaProjects\PomodoroApp\src\main\resources\com\example\pomodoroapp" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.pomodoroapp.Controller" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.pomodoroapp.HelloApplication" />
       <module name="PomodoroApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterControllerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterControllerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterControllerTest.testOnRegister_ValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PomodoroApp" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RegisterControllerTest" />
+      <option name="METHOD_NAME" value="testOnRegister_ValidData" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,6 +188,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.RegisterControllerTest" />
+      <item itemvalue="JUnit.RegisterControllerTest.testOnRegister_ValidData" />
       <item itemvalue="JUnit.TimerControllerTest" />
       <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
       <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
@@ -164,11 +197,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterControllerTest.testOnRegister_ValidData" />
         <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
         <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
         <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
         <item itemvalue="JUnit.TimerControllerTest" />
-        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +243,11 @@
       <workItem from="1715051112001" duration="1212000" />
       <workItem from="1715335745094" duration="283000" />
       <workItem from="1715339569025" duration="2689000" />
-      <workItem from="1715652364448" duration="2705000" />
+      <workItem from="1715652364448" duration="7575000" />
+      <workItem from="1716029374532" duration="5201000" />
+      <workItem from="1716177942947" duration="11363000" />
+      <workItem from="1716191437713" duration="17000" />
+      <workItem from="1716261431787" duration="7307000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'refs/heads/master' into master_test&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/pomodoroapp/HelloApplication.java">
       <option name="closed" value="true" />
@@ -316,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715581988948</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
+      <option name="closed" value="true" />
+      <created>1715655103626</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715655103626</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,5 +395,37 @@
     <MESSAGE value="Added study session implementation in regards to accounts. Able to view sessions as well, along with more fxml files" />
     <MESSAGE value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
     <option name="LAST_COMMIT_MESSAGE" value="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/RegisterControllerTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/RegisterControllerTest.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/SqliteStudy_SessionDAO.java</url>
+          <line>12</line>
+          <properties field="accountId" class="com.example.pomodoroapp.Model.SqliteStudy_SessionDAO" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.pomodoroapp.Controller.RegisterController" memberName="firstNameTextField" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

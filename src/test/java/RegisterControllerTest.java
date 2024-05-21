@@ -38,7 +38,7 @@ public class RegisterControllerTest {
         String email = "john@example.com";
         String password = "Password123!";
 
-        controller.setFirstNameTextField(firstName);
+   //     controller.setFirstNameTextField(firstName);
         controller.setLastNameTextField(lastName);
         controller.setEmailTextField(email);
         controller.setPasswordTextField(password);

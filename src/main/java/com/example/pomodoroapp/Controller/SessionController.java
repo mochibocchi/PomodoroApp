@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,11 +17,10 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
@@ -51,10 +52,13 @@ public class SessionController {
     @FXML
     private TextField sessionIdTextField;
     private int loggedInUserId;
+
     @FXML
     private CategoryAxis xAxis;
     @FXML
     private NumberAxis yAxis;
+    @FXML
+    private ComboBox<String> moodComboBox;
 
     public void setLoggedInUserId(int loggedInUserId) {
         this.loggedInUserId = loggedInUserId;
@@ -64,6 +68,27 @@ public class SessionController {
         return AccountData.getInstance().getAccountId();
     }
 
+    @FXML
+    public void initialize() {
+        if (moodComboBox != null) {
+            moodComboBox.getItems().addAll(
+                    "Very Bad",
+                    "Bad",
+                    "Poor",
+                    "Below Average",
+                    "Average",
+                    "Above Average",
+                    "Good",
+                    "Very Good",
+                    "Excellent",
+                    "Amazing"
+            );
+            moodComboBox.setValue("Average");
+        }
+    }
+
+
+
 
     public void addSession(ActionEvent event) throws IOException {
 
@@ -72,7 +97,8 @@ public class SessionController {
         LocalDateTime current_date = LocalDateTime.now();
         long session_date = current_date.toEpochSecond(java.time.ZoneOffset.UTC);
         String completedWork = completedWorkTextField.getText();
-        Study_Session study_session = new Study_Session(accountId, total_time, session_date,completedWork);
+        int mood = Study_Session.getMood(moodComboBox.getValue());
+        Study_Session study_session = new Study_Session(accountId, total_time, session_date,completedWork,mood);
         Study_SessionDAO.addStudy_Session(study_session);
         loadScene("view/timer.fxml", event, 520, 400);
     }
@@ -93,21 +119,41 @@ public class SessionController {
         loadScene("view/timer.fxml",event, 520, 400);
     }
 
-    public void showBarGraph(List<Study_Session> sessions) {
+    private void showBarGraph(List<Study_Session> sessions) {
         barChart.getData().clear();
         xAxis.setLabel("Date");
-        yAxis.setLabel("Time Spent");
+        yAxis.setLabel("Value");
 
         if (!sessions.isEmpty()) {
+            XYChart.Series<String, Number> timeSeries = new XYChart.Series<>();
+            timeSeries.setName("Time Spent (s)");
+
+            XYChart.Series<String, Number> moodSeries = new XYChart.Series<>();
+            moodSeries.setName("Mood");
+
             for (Study_Session session : sessions) {
                 LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(session.getSessionDate(), 0, java.time.ZoneOffset.UTC);
                 String formattedDate = sessionDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-                XYChart.Series<String, Number> series = new XYChart.Series<>();
-                series.setName("Session ID: " + session.getSessionId());
-                series.getData().add(new XYChart.Data<>(formattedDate, session.getTotalTime()));
-                barChart.getData().add(series);
+                XYChart.Data<String, Number> timeData = new XYChart.Data<>(formattedDate, session.getTotalTime());
+                timeData.setNode(createDataNode(session.getTotalTime()));
+                timeSeries.getData().add(timeData);
+                XYChart.Data<String, Number> moodData = new XYChart.Data<>(formattedDate, session.getMood());
+                moodData.setNode(createDataNode(session.getMood()));
+                moodSeries.getData().add(moodData);
             }
+
+            barChart.getData().addAll(timeSeries, moodSeries);
         }
+    }
+
+    private Node createDataNode(Number value) {
+        Text text = new Text(String.valueOf(value));
+        text.setStyle("-fx-font-size: 12px;");
+        StackPane pane = new StackPane();
+        pane.getChildren().add(text);
+        pane.setAlignment(Pos.TOP_CENTER);
+        StackPane.setMargin(text, new Insets(-15, 0, 0, 0));
+        return pane;
     }
 
     @FXML
@@ -133,9 +179,14 @@ public class SessionController {
         TableColumn<Study_Session, String> completedWorkColumn = new TableColumn<>("Completed Work");
         completedWorkColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCompletedWork()));
 
-        sessionTable.getColumns().setAll(sessionIdColumn, totalTimeColumn, sessionDateColumn, completedWorkColumn);
+        TableColumn<Study_Session, Integer> moodColumn = new TableColumn<>("Mood");
+        moodColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMood()).asObject());
+
+        sessionTable.getColumns().setAll(sessionIdColumn, totalTimeColumn, sessionDateColumn, completedWorkColumn, moodColumn);
         showBarGraph(sessions);
     }
+
+
 
 
 }

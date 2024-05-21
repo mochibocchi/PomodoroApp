@@ -11,7 +11,7 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
 
     private LoginController loginController;
     private int accountId;
-
+    private int mood;
 
 
     public void setLoginController(LoginController loginController) {
@@ -37,7 +37,8 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
                 int total_time = resultSet.getInt("total_time");
                 long session_date = resultSet.getLong("session_date");
                 String completedWork = resultSet.getString("completedWork");
-                Study_Session session = new Study_Session(accountId, total_time,session_date, completedWork);
+                int mood = resultSet.getInt("mood");
+                Study_Session session = new Study_Session(accountId, total_time,session_date, completedWork, mood);
                 session.setSessionId(sessionId);
                 sessions.add(session);
             }
@@ -58,6 +59,7 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
                     + "total_time INTEGER NOT NULL,"
                     + "session_date INTEGER NOT NULL,"
                     + "completedWork TEXT NOT NULL,"
+                    + "mood INTEGER NOT NULL,"
                     + "FOREIGN KEY (accountId) REFERENCES accounts(id)"
                     + ")";
             statement.execute(query);
@@ -73,11 +75,12 @@ public class SqliteStudy_SessionDAO implements IStudy_SessionDAO{
     @Override
     public void addStudy_Session( Study_Session study_session) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO study_sessions ( accountId, total_time,session_date, completedWork) VALUES (?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO study_sessions ( accountId, total_time,session_date, completedWork, mood) VALUES (?, ?, ?, ?, ?)");
             statement.setInt(1, study_session.getLoggedInUserId());
             statement.setInt(2, AccountData.getInstance().getTotalTimeElapsed());
             statement.setLong(3, study_session.getSessionDate());
             statement.setString(4, study_session.getCompletedWork());
+            statement.setInt(5, study_session.getMood());
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected == 1) {

@@ -37,3 +37,7 @@
 .highlight-button {
     -fx-background-color: #C8E0FF;
 }
+
+.chart-bar {
+    -fx-bar-width: 5px;
+}

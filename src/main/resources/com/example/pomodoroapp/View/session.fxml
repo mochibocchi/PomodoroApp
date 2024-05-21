@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ComboBox?>
 <VBox alignment="CENTER" prefHeight="231.0" prefWidth="228.0" spacing="10" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.SessionController">
     <Label text="Pomodoro Timer" />
 
@@ -32,14 +34,15 @@
             <AnchorPane prefHeight="400.0" prefWidth="487.0" BorderPane.alignment="CENTER">
                 <children>
                     <Label alignment="CENTER" layoutY="66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                    <TextField fx:id="completedWorkTextField" layoutX="84.0" layoutY="136.0" promptText="Completed Work" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
+                    <TextField fx:id="completedWorkTextField" layoutX="84.0" layoutY="110.0" promptText="Completed Work" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
+                    <ComboBox fx:id="moodComboBox" layoutX="105.0" layoutY="150.0" prefWidth="150.0" />
                     <Text layoutX="139.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.15156250000001">
                         <font>
                             <Font size="25.0" />
                         </font>
                     </Text>
-                    <Button fx:id="sessionButton" layoutX="110.0" layoutY="180.0" mnemonicParsing="false" onAction="#addSession" text="Register Session" />
-                    <Button fx:id="TimerButton" layoutX="135.0" layoutY="240.0" onAction="#GoToTimer" prefHeight="14.0" prefWidth="100.0" text="Go Back" />
+                    <Button fx:id="sessionButton" layoutX="110.0" layoutY="200.0" mnemonicParsing="false" onAction="#addSession" text="Register Session" />
+                    <Button fx:id="TimerButton" layoutX="130.0" layoutY="260.0" onAction="#GoToTimer" prefHeight="14.0" prefWidth="100.0" text="Go Back" />
 
 
                 </children>
