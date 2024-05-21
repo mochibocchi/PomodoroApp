@@ -39,7 +39,7 @@
         <Button onAction="#handleAddTask" text="Add Task" />
        <Button onAction="#handleDeleteTask" text="Delete Selected Task" />
     </HBox>
-    <Button onAction="#handleSaveTasks" text="Save Uncompleted Tasks" />
+<!--    <Button onAction="#handleSaveTasks" text="Save Uncompleted Tasks" />-->
    <padding>
       <Insets bottom="10.0" />
    </padding>

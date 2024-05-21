@@ -53,7 +53,7 @@ public class TasklistController {
         }
     }
 
-    public void handleSaveTasks() {
-        // Save the tasks to the database (implementation depends on the database setup)
-    }
+//    public void handleSaveTasks() {
+//        // Save the tasks to the database (implementation depends on the database setup)
+//    }
 }

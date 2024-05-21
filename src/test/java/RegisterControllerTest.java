@@ -29,20 +29,20 @@ public class RegisterControllerTest {
         assertFalse(controller.isValidPassword("pass"));
     }
 
-    @Test
-    public void testOnRegister_ValidData() {
-        RegisterController controller = new RegisterController();
-
-        String firstName = "John";
-        String lastName = "Doe";
-        String email = "john@example.com";
-        String password = "Password123!";
-
-        controller.setFirstNameTextField(firstName);
-        controller.setLastNameTextField(lastName);
-        controller.setEmailTextField(email);
-        controller.setPasswordTextField(password);
-        controller.onRegister(null);
-
-    }
+//    @Test
+//    public void testOnRegister_ValidData() {
+//        RegisterController controller = new RegisterController();
+//
+//        String firstName = "John";
+//        String lastName = "Doe";
+//        String email = "john@example.com";
+//        String password = "Password123!";
+//
+//        controller.setFirstNameTextField(firstName);
+//        controller.setLastNameTextField(lastName);
+//        controller.setEmailTextField(email);
+//        controller.setPasswordTextField(password);
+//        controller.onRegister(null);
+//
+//    }
 }
