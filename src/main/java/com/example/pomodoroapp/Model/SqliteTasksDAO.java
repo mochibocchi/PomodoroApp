@@ -19,8 +19,15 @@ public class SqliteTasksDAO  implements  ITasksDAO{
         createTable();
     }
 
+    /**
+     * @param accountId the account id of the logged-in user
+     * @return the tasks from the db for the account
+     */
     @Override
     public List<Study_Tasks> getTasks(int accountId) {
+        /**
+         * Returns the tasks that the user has created
+         */
         List<Study_Tasks> tasks = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM tasks WHERE accountId = ?");
@@ -42,6 +49,9 @@ public class SqliteTasksDAO  implements  ITasksDAO{
 
 
     private void createTable() {
+        /**
+         * Creates the table of study tasks
+         */
         try {
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS tasks ("
@@ -59,9 +69,14 @@ public class SqliteTasksDAO  implements  ITasksDAO{
     }
 
 
-
+    /**
+     * @param study_tasks adds a study task to the db
+     */
     @Override
     public void addTask(Study_Tasks study_tasks) {
+        /**
+         * Adds a task for the user who is logged in
+         */
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO tasks ( accountId, taskDetails) VALUES (?, ?)");
             statement.setInt(1, study_tasks.getLoggedInUserId());
@@ -77,7 +92,14 @@ public class SqliteTasksDAO  implements  ITasksDAO{
         }
     }
 
+    /**
+     * @param accountId the account id that is logged in
+     * @param taskDetails the string of the inputted task
+     */
     public void deleteTask(int accountId, String taskDetails) {
+        /**
+         * Deletes the selected task from the database
+         */
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM tasks WHERE accountId = ? AND taskDetails = ?");
             statement.setInt(1, accountId);

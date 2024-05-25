@@ -70,6 +70,9 @@ public class SessionController {
 
     @FXML
     public void initialize() {
+        /**
+         * Initializes the combobox for setting the mood
+         */
         if (moodComboBox != null) {
             moodComboBox.getItems().addAll(
                     "Very Bad",
@@ -88,14 +91,16 @@ public class SessionController {
     }
 
 
-
-
+    /**
+     * @param event
+     * @throws IOException
+     */
     public void addSession(ActionEvent event) throws IOException {
 
         int accountId = getLoggedInUserId();
         int total_time = AccountData.getInstance().getTotalTimeElapsed();
         LocalDateTime current_date = LocalDateTime.now();
-        long session_date = current_date.toEpochSecond(java.time.ZoneOffset.UTC);
+        long session_date = current_date.toEpochSecond(ZoneOffset.UTC);
         String completedWork = completedWorkTextField.getText();
         int mood = Study_Session.getMood(moodComboBox.getValue());
         Study_Session study_session = new Study_Session(accountId, total_time, session_date,completedWork,mood);
@@ -103,6 +108,12 @@ public class SessionController {
         loadScene("view/timer.fxml", event, 520, 400);
     }
 
+    /**
+     * @param fxmlPath the fxml file directory
+     * @param event determines an action
+     * @param width the width of the application
+     * @param height the height of the application
+     */
     private void loadScene(String fxmlPath, ActionEvent event, int width, int height) {
         try {
             Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlPath));
@@ -119,7 +130,13 @@ public class SessionController {
         loadScene("view/timer.fxml",event, 520, 400);
     }
 
+    /**
+     * @param sessions the sessions for the user
+     */
     private void showBarGraph(List<Study_Session> sessions) {
+        /**
+         * Creates the bar graph for the study sessions
+         */
         barChart.getData().clear();
         xAxis.setLabel("Date");
         yAxis.setLabel("Value");
@@ -132,7 +149,7 @@ public class SessionController {
             moodSeries.setName("Mood");
 
             for (Study_Session session : sessions) {
-                LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(session.getSessionDate(), 0, java.time.ZoneOffset.UTC);
+                LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(session.getSessionDate(), 0, ZoneOffset.UTC);
                 String formattedDate = sessionDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
                 XYChart.Data<String, Number> timeData = new XYChart.Data<>(formattedDate, session.getTotalTime());
                 timeData.setNode(createDataNode(session.getTotalTime()));
@@ -146,7 +163,15 @@ public class SessionController {
         }
     }
 
+
+    /**
+     * @param value the number value for the mood and time
+     * @return the total time and mood
+     */
     private Node createDataNode(Number value) {
+        /**
+         * Creates the floating values for each bar
+         */
         Text text = new Text(String.valueOf(value));
         text.setStyle("-fx-font-size: 12px;");
         StackPane pane = new StackPane();
@@ -156,8 +181,12 @@ public class SessionController {
         return pane;
     }
 
+
     @FXML
     public void showSessions() {
+        /**
+         * Shows the table of values from the database
+         */
         int accountId = getLoggedInUserId();
         List<Study_Session> sessions = Study_SessionDAO.getStudySessions(accountId);
         ObservableList<Study_Session> sessionList = FXCollections.observableArrayList(sessions);
@@ -172,7 +201,7 @@ public class SessionController {
 
         TableColumn<Study_Session, String> sessionDateColumn = new TableColumn<>("Session Date");
         sessionDateColumn.setCellValueFactory(cellData -> {
-            LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(cellData.getValue().getSessionDate(), 0, java.time.ZoneOffset.UTC);
+            LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(cellData.getValue().getSessionDate(), 0, ZoneOffset.UTC);
             return new SimpleStringProperty(sessionDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
         });
 

@@ -44,6 +44,9 @@ public class RegisterController {
 
     @FXML
     private void handleGoToLogin(ActionEvent event) {
+        /**
+         * Loads the login page
+         */
         loadScene("view/login.fxml", event);
     }
 
@@ -60,9 +63,11 @@ public class RegisterController {
     }
 
 
-
     @FXML
     public void onRegister(ActionEvent event) {
+        /**
+         * Registers an account to the database
+         */
         final String firstName = firstNameTextField.getText();
         final String lastName = lastNameTextField.getText();
         final String email = emailTextField.getText();
@@ -83,9 +88,16 @@ public class RegisterController {
     }
 
     public boolean isValidEmail(String email) {
+        /**
+         * Checks if the email is a proper address
+         */
         return email.contains("@") && email.contains(".");
     }
+
     public boolean isValidPassword(String password) {
+        /**
+         * Checks if the password is greater than 12 characters and if it contains any special characters
+         */
         if (password.length() < 12) {
             return false;
         }
@@ -100,26 +112,4 @@ public class RegisterController {
     }
 
 
-
-    @FXML
-    private void logout(ActionEvent event) {
-        AccountData.getInstance().setAccountId(0);
-        loadScene("view/login.fxml", event);
-    }
-
-    public void setFirstNameTextField(String firstName) {
-        firstNameTextField.setText(firstName);
-    }
-
-    public void setLastNameTextField(String lastName) {
-        lastNameTextField.setText(lastName);
-    }
-
-    public void setEmailTextField(String email) {
-        emailTextField.setText(email);
-    }
-
-    public void setPasswordTextField(String password) {
-        passwordTextField.setText(password);
-    }
 }

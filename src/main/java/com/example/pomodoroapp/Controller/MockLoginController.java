@@ -33,12 +33,10 @@ public class MockLoginController {
         String password = passwordTextField.getText();
         // Mock implementation of account verification
         if ("test@example.com".equals(email) && "password".equals(password)) {
-            accountId = 123; // Mock account ID
+            accountId = 123;
         } else {
-            accountId = -1; // Mock invalid credentials
+            accountId = -1;
         }
     }
 
-    public void login() {
-    }
 }
