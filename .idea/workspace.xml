@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TasklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/TasklistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/TimerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/tasklist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/tasklist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegisterControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +47,16 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/mochibocchi/PomodoroApp.git&quot;,
-    &quot;accountId&quot;: &quot;c4cb64c0-844e-4fdf-bc19-304a99dd0fb6&quot;
+    &quot;accountId&quot;: &quot;c4e9a1a3-96b0-4c13-913c-05d4bed4d800&quot;
   }
 }</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -67,32 +67,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.LoginControllerTest.executor": "Run",
-    "JUnit.RegisterControllerTest.executor": "Run",
-    "JUnit.TimerControllerTest.executor": "Run",
-    "JUnit.TimerControllerTest.testPomodoroTimerValue.executor": "Run",
-    "JUnit.TimerControllerTest.testShortBreakCheckMode.executor": "Debug",
-    "JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "git-widget-placeholder": "Merging integration",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.LoginControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegisterControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TimerControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TimerControllerTest.testPomodoroTimerValue.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TimerControllerTest.testShortBreakCheckMode.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;integration&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/brand/OneDrive - Queensland University of Technology/QUT Docs/Year 3 Sem 1 2024/CAB302 - Software Development/Assessment/PomodoroApp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.pomodoroapp.Controller" />
@@ -167,17 +169,8 @@
         <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckMode" />
         <item itemvalue="JUnit.TimerControllerTest.testPomodoroTimerValue" />
         <item itemvalue="JUnit.TimerControllerTest" />
-        <item itemvalue="JUnit.TimerControllerTest.testShortBreakCheckSeconds" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="ShelveChangesManager">
     <option name="remove_strategy" value="true" />

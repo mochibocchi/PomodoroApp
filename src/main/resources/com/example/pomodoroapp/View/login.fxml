@@ -29,14 +29,14 @@
          <children>
             <Label alignment="CENTER" layoutY="66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <TextField fx:id="emailTextField" layoutX="75.0" layoutY="163.0" promptText="Email" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" />
-            <TextField fx:id="passwordTextField" layoutX="75.0" layoutY="212.0" promptText="Password" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" />
+            <TextField fx:id="passwordTextField" layoutX="75.2" layoutY="209.0" promptText="Password" stylesheets="@style.css" AnchorPane.leftAnchor="75.2" AnchorPane.rightAnchor="75.19999999999999" />
             <Text layoutX="128.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="130.65966796875">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Button fx:id="loginButton" layoutX="134.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleLogin" text="Log In" />
-            <Hyperlink fx:id="registerButton" layoutX="108.0" layoutY="299.0" onAction="#handleGoToRegister" text="Create an account" />
+            <Button fx:id="loginButton" layoutX="120.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleLogin" stylesheets="@style.css" text="Log In" />
+            <Hyperlink fx:id="registerButton" layoutX="108.0" layoutY="304.0" onAction="#handleGoToRegister" text="Create an account" />
          </children>
       </AnchorPane>
    </right>

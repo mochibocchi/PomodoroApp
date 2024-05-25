@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.TasklistController">
+<VBox alignment="CENTER" prefHeight="436.0" prefWidth="493.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.TasklistController">
    <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="432.0">
       <children>
-         <Button fx:id="backButton" mnemonicParsing="false" onAction="#GoToTimer" text="Back">
+         <Button fx:id="backButton" onAction="#GoToTimer" stylesheets="@style.css" text="Back">
             <HBox.margin>
                <Insets left="10.0" />
             </HBox.margin>
          </Button>
-         <Pane prefHeight="36.0" prefWidth="144.0" />
+         <Pane prefHeight="41.0" prefWidth="105.0" stylesheets="@style.css" />
          <Label alignment="CENTER" prefHeight="22.0" prefWidth="125.0" text="Tasklist" HBox.hgrow="NEVER">
             <font>
                <Font size="15.0" />
@@ -29,15 +29,15 @@
          <Insets top="10.0" />
       </padding>
    </HBox>
-    <ListView fx:id="taskListView" prefHeight="400.0" prefWidth="432.0">
+    <ListView fx:id="taskListView" prefHeight="400.0" prefWidth="498.0">
       <VBox.margin>
          <Insets />
       </VBox.margin>
    </ListView>
     <HBox alignment="CENTER" spacing="10.0">
-        <TextField fx:id="taskInputField" />
-        <Button onAction="#handleAddTask" text="Add Task" />
-       <Button onAction="#handleDeleteTask" text="Delete Selected Task" />
+        <TextField fx:id="taskInputField" stylesheets="@style.css" />
+        <Button onAction="#handleAddTask" stylesheets="@style.css" text="Add Task" />
+       <Button onAction="#handleDeleteTask" prefHeight="42.0" prefWidth="171.0" stylesheets="@style.css" text="Delete Selected Task" />
     </HBox>
 <!--    <Button onAction="#handleSaveTasks" text="Save Uncompleted Tasks" />-->
    <padding>
