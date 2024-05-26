@@ -6,12 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.pomodoroapp.Controller.RegisterController">
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodoroapp.Controller.RegisterController">
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C8E0FF;" BorderPane.alignment="CENTER">
@@ -28,18 +27,18 @@
         <AnchorPane prefHeight="400.0" prefWidth="487.0" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" layoutY="66.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                <TextField fx:id="firstNameTextField" layoutX="84.0" layoutY="52.0" promptText="First Name" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
-                <TextField fx:id="lastNameTextField" layoutX="84.0" layoutY="94.0" promptText="Last Name" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
-                <TextField fx:id="emailTextField" layoutX="84.0" layoutY="136.0" promptText="Email" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
-                <TextField fx:id="passwordTextField" layoutX="84.0" layoutY="178.0" promptText="Password" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="66.39999999999998" />
-                <Text layoutX="139.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="120.15156250000001">
+                <TextField fx:id="firstNameTextField" layoutX="105.0" layoutY="102.0" promptText="First Name" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="46.19999999999999" />
+                <TextField fx:id="lastNameTextField" layoutX="105.0" layoutY="143.0" promptText="Last Name" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="46.19999999999999" />
+                <TextField fx:id="emailTextField" layoutX="105.0" layoutY="187.0" promptText="Email" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="46.19999999999999" />
+                <TextField fx:id="passwordTextField" layoutX="105.0" layoutY="229.0" promptText="Password" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="46.19999999999999" />
+                <Text layoutX="168.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="111.15156250000001">
                     <font>
                         <Font size="25.0" />
                     </font>
                 </Text>
-                <Button fx:id="registerButton" layoutX="155.0" layoutY="257.0" mnemonicParsing="false" onAction="#onRegister" text="Sign up" />
-                <Hyperlink fx:id="loginButton" layoutX="229.0" layoutY="307.0" onAction="#handleGoToLogin" prefHeight="14.0" prefWidth="42.0" text="Log In" />
-            <Label layoutX="92.0" layoutY="310.0" text="Already have an account?" />
+                <Button fx:id="registerButton" layoutX="169.0" layoutY="274.0" mnemonicParsing="false" onAction="#onRegister" stylesheets="@style.css" text="Sign up" />
+                <Hyperlink fx:id="loginButton" layoutX="261.0" layoutY="342.0" onAction="#handleGoToLogin" prefHeight="14.0" prefWidth="42.0" text="Log In" />
+            <Label layoutX="124.0" layoutY="345.0" text="Already have an account?" />
             </children>
         </AnchorPane>
     </right>
