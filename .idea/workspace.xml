@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Implement the pomodoro cycle. (pomodoro -&gt; short break) x4 -&gt; transition into long break">
-    <list default="true" id="252f77c2-96dd-45a3-a176-46ae83a2872c" name="Changes" comment="Added graph visualisation and some not entirely finished mock tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/pomodoroapp/Controller/RegisterControllerTest.java" afterDir="false" />
+    <list default="true" id="40be05c4-ce77-4200-b8ae-c3c2aae77ce9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro.db" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/tasklist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/tasklist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/MockLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/MockLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/AccountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/AccountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/SqliteTasksDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/Model/SqliteTasksDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pomodoroapp/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/ViewSessions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/ViewSessions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pomodoroapp/View/session.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,57 +74,11 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.LoginControllerTest.executor": "Run",
-    "JUnit.RegisterControllerTest.executor": "Run",
-    "JUnit.RegisterControllerTest.testOnRegister_ValidData.executor": "Run",
-    "JUnit.TimerControllerTest.executor": "Run",
-    "JUnit.TimerControllerTest.testPomodoroTimerValue.executor": "Run",
-    "JUnit.TimerControllerTest.testShortBreakCheckMode.executor": "Debug",
-    "JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Liam/Downloads/PomodoroApp(Brandon)/PomodoroApp",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.LoginControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RegisterControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerControllerTest.testPomodoroTimerValue.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerControllerTest.testShortBreakCheckMode.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TimerControllerTest.testShortBreakCheckSeconds.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;integration&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/brand/OneDrive - Queensland University of Technology/QUT Docs/Year 3 Sem 1 2024/CAB302 - Software Development/Assessment/PomodoroApp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RecentsManager">

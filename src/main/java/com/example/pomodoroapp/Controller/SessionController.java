@@ -70,21 +70,15 @@ public class SessionController {
 
     @FXML
     public void initialize() {
-        /**
-         * Initializes the combobox for setting the mood
-         */
+        initializeMoodComboBox();
+        showSessions();
+    }
+
+    private void initializeMoodComboBox() {
         if (moodComboBox != null) {
             moodComboBox.getItems().addAll(
-                    "Very Bad",
-                    "Bad",
-                    "Poor",
-                    "Below Average",
-                    "Average",
-                    "Above Average",
-                    "Good",
-                    "Very Good",
-                    "Excellent",
-                    "Amazing"
+                    "Very Bad", "Bad", "Poor", "Below Average", "Average",
+                    "Above Average", "Good", "Very Good", "Excellent", "Amazing"
             );
             moodComboBox.setValue("Average");
         }
@@ -160,6 +154,7 @@ public class SessionController {
             }
 
             barChart.getData().addAll(timeSeries, moodSeries);
+            barChart.layout();
         }
     }
 
@@ -184,35 +179,37 @@ public class SessionController {
 
     @FXML
     public void showSessions() {
-        /**
-         * Shows the table of values from the database
-         */
-        int accountId = getLoggedInUserId();
-        List<Study_Session> sessions = Study_SessionDAO.getStudySessions(accountId);
-        ObservableList<Study_Session> sessionList = FXCollections.observableArrayList(sessions);
-        sessionTable.getItems().clear();
-        sessionTable.setItems(sessionList);
-        sessionTable.setVisible(true);
-        TableColumn<Study_Session, Integer> sessionIdColumn = new TableColumn<>("Session ID");
-        sessionIdColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getSessionId()).asObject());
+        if (sessionTable != null) {
+            /**
+             * Shows the table of values from the database
+             */
+            int accountId = getLoggedInUserId();
+            List<Study_Session> sessions = Study_SessionDAO.getStudySessions(accountId);
+            ObservableList<Study_Session> sessionList = FXCollections.observableArrayList(sessions);
+            sessionTable.getItems().clear();
+            sessionTable.setItems(sessionList);
+            sessionTable.setVisible(true);
+            TableColumn<Study_Session, Integer> sessionIdColumn = new TableColumn<>("Session ID");
+            sessionIdColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getSessionId()).asObject());
 
-        TableColumn<Study_Session, Integer> totalTimeColumn = new TableColumn<>("Total Time(s)");
-        totalTimeColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getTotalTime()).asObject());
+            TableColumn<Study_Session, Integer> totalTimeColumn = new TableColumn<>("Total Time(s)");
+            totalTimeColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getTotalTime()).asObject());
 
-        TableColumn<Study_Session, String> sessionDateColumn = new TableColumn<>("Session Date");
-        sessionDateColumn.setCellValueFactory(cellData -> {
-            LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(cellData.getValue().getSessionDate(), 0, ZoneOffset.UTC);
-            return new SimpleStringProperty(sessionDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
-        });
+            TableColumn<Study_Session, String> sessionDateColumn = new TableColumn<>("Session Date");
+            sessionDateColumn.setCellValueFactory(cellData -> {
+                LocalDateTime sessionDate = LocalDateTime.ofEpochSecond(cellData.getValue().getSessionDate(), 0, ZoneOffset.UTC);
+                return new SimpleStringProperty(sessionDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+            });
 
-        TableColumn<Study_Session, String> completedWorkColumn = new TableColumn<>("Completed Work");
-        completedWorkColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCompletedWork()));
+            TableColumn<Study_Session, String> completedWorkColumn = new TableColumn<>("Completed Work");
+            completedWorkColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCompletedWork()));
 
-        TableColumn<Study_Session, Integer> moodColumn = new TableColumn<>("Mood");
-        moodColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMood()).asObject());
+            TableColumn<Study_Session, Integer> moodColumn = new TableColumn<>("Mood");
+            moodColumn.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMood()).asObject());
 
-        sessionTable.getColumns().setAll(sessionIdColumn, totalTimeColumn, sessionDateColumn, completedWorkColumn, moodColumn);
-        showBarGraph(sessions);
+            sessionTable.getColumns().setAll(sessionIdColumn, totalTimeColumn, sessionDateColumn, completedWorkColumn, moodColumn);
+            showBarGraph(sessions);
+        }
     }
 
 
