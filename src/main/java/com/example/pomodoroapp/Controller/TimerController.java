@@ -298,7 +298,7 @@ public class TimerController {
 
     @FXML
     private void GoToSessions(ActionEvent event) {
-        loadScene("view/ViewSessions.fxml", event,520, 400);
+        loadScene("view/ViewSessions.fxml", event,920, 720);
     }
 
     @FXML
